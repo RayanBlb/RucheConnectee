@@ -1,9 +1,7 @@
-#include "son.h"
-#include "CO2.h"
-#include "Lora_Send.h"
-#include "piezo.h"
-#include "VarGlobales.h"
+#include "donnees.h"
 #include "Definition.h"
+
+String SendLoraChaine;
 
 void setup() {
 
@@ -12,34 +10,13 @@ void setup() {
   
   Serial.begin(115200);
 
-  setup_CO2();
-  setup_son();
-  setup_Lora_Send();
-  setup_piezo();
+  setup_donnees();
+  
   Serial.begin(9600);
 }
 
 void loop() {
- 
- //Serial.println(read_son()); 
- //Serial.println(read_CO2_value());
- 
- //Programmation de la trame générale
- SendLoraChaine = "Freq: " + String(read_son()) +  "FreqP: " + String(read_piezo()) +  "Hz, " + read_CO2_value();
+  //Trame forme : I+macAdresse+son+temperature+CO2+TVOC+Piezo
+  SendLoraChaine = "I|"+read_mac()+"|"+String(read_Son())+"|"+String(read_Temperature())+"|"+read_CO2()+"|"+String(read_Piezo());
  Serial.println(SendLoraChaine);
- //Envoie des data via lora
- /*Lora_send(SendLoraChaine);
- Counter = 0;
- while(Lora_read() < 1 && Counter <4)
- {
-    delay(60);
-    Seiral.println("Send data again");
-    Lora_send(SendLoraChaine);//envoie du packet
-    Counter++;    
- }
- Serial.println("Going to sleep");
- esp_sleep_enable_timer_wakeup(TIME_TO_SLEEP * uS_TO_S_FACTOR);
- esp_deep_sleep_start();
- 
- delay(10);*/
 }
