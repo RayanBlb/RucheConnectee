@@ -11,15 +11,15 @@
 
 
 
-void setup_Lora_Send() { 
+void setup_Lora_Send() {//Initialisation Lora
   
 
   Serial.println("LoRa Send Test");
   
   //SPI LoRa pins
-  SPI.begin(SCK, MISO, MOSI, SS);
+  SPI.begin(SCK, MISO, MOSI, SS); //Initialisation communication SPI
   //setup LoRa transceiver module
-  LoRa.setPins(SS, RST, DIO0);
+  LoRa.setPins(SS, RST, DIO0); //Initialisation pin adresse SPI (adressage)
 
   if (!LoRa.begin(BAND)) {
     Serial.println("Starting LoRa failed!");
@@ -29,27 +29,26 @@ void setup_Lora_Send() {
  
 }
 
-void Lora_send(String Chaine) {
-
-
+void Lora_send(String Chaine) {//création du packet
 
    LoRa.beginPacket();
    LoRa.print(Chaine);
    LoRa.endPacket();
 
    delay(10);
-  
 }
 
 int Lora_read()
 {
-   int packetSize = LoRa.parsePacket();
-   if (packetSize) {
-    //received a packet
-    Serial.print("Received packet ");
+  
+   int packetSize = LoRa.parsePacket();//récuperation taille packet Lora
+
+   if (packetSize) { //vérification reception packet
+
+    Serial.print("Received packet");
 
     while (LoRa.available()) {
-      LoRaData = LoRa.readString();
+      LoRaData = LoRa.readString();//Récupération des données Lora
       Serial.print(LoRaData);
     }
 
