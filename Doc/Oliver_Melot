@@ -15,7 +15,7 @@ On a eu des doutes sur la fonctionnalité de la cartes réalisé.
 
 Compte rendu deuxième scéance de projet: 09/09/2021
 
-Les objectifs de cette seconde scéance étaient,
+Les objectifs de cette seconde scéance étaient:
 -Vérifier l'alimentation de la carte
 -test du module gateway pour réception de Lora
 -communication entre la carte et la gateway
@@ -27,7 +27,7 @@ par batterie si l'on venait à utiliser/tester certains modulesqui sont trop gou
 
 Compte rendu troizième scéance de projet: 17/09/2021
 
-Les objectifs de cette seconde scéance étaient,
+Les objectifs de cette seconde scéance étaient:
 -compréhension du fonctionnement du module piezo électrique
 -Etude du routage de la carte électronique
 
@@ -36,3 +36,7 @@ de plus nous avons étudier le schéma électronqiue qu'il faudra mettre en plac
 Pour finir je me suis intéresser avec rayan à la librairie lora utilisé par les précédents étudiants.
 
 Compte rendu quatrième scéance de projet: 23/09/2021
+Les objectifs de cette quatrième scéance étaient:
+-Comprendre les schémas pour intégrer la lecture du senseur piezo-électrique
+-Vérifier les trames lues par les senseur
+
