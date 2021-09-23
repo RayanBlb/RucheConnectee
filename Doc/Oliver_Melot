@@ -1,0 +1,38 @@
+Compte rendu première scéance de projet: 27/08/2021
+
+Les objectifs de cette scéance étaient:
+- De comprendre les attentes du projets en termes de réalisation
+- Prendre en compte les réussites et ratés des précédents créateurs
+- Définir les points à améliorer et vérifier la fonctionnalités de la carte produite
+
+
+Tout d'abord dans ce premier cours nous nous sommes intéresser au cahier des charges, pour ainsi comprendre la fonctionnalité du module électronique conçu.
+Pour cela je me suis attelé à recueillir les informations laissées par les anciens étudiants.
+J'ai pu comprendre les différentes fonctionnalités attendus et réalisable par la carte, on s'est aperçus que certains modules n'ayant pas été implémenter (accéléromètre et
+piezo électrique).
+
+On a eu des doutes sur la fonctionnalité de la cartes réalisé.
+
+Compte rendu deuxième scéance de projet: 09/09/2021
+
+Les objectifs de cette seconde scéance étaient,
+-Vérifier l'alimentation de la carte
+-test du module gateway pour réception de Lora
+-communication entre la carte et la gateway
+
+Nous avons nous connecté à la gateway fournie dans le groupe cependant, sans informations complémentaires ni datasheet d'explication nous n'avons pas su naviguer dans le module,
+pour réaliser les tests.
+L'alimentation semble fonctionnel pour les premier test, cependant nous avons déterminés des difficultés que nous pourrions rencontrés vis à vis de l'alimentation qui devra s'effectuer
+par batterie si l'on venait à utiliser/tester certains modulesqui sont trop gourmand pour un simple usb.
+
+Compte rendu troizième scéance de projet: 17/09/2021
+
+Les objectifs de cette seconde scéance étaient,
+-compréhension du fonctionnement du module piezo électrique
+-Etude du routage de la carte électronique
+
+Nous nous sommes intéresser au routage de la carte pour comprendre la mise en place de celle-ci pour à l'avenir mieux naviguer lors d'éventuels problèmes qui pourraient survenir,
+de plus nous avons étudier le schéma électronqiue qu'il faudra mettre en place pour le module piezo que nous voulons implémenter sur la carte.
+Pour finir je me suis intéresser avec rayan à la librairie lora utilisé par les précédents étudiants.
+
+Compte rendu quatrième scéance de projet: 23/09/2021
