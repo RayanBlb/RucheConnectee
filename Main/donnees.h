@@ -48,21 +48,21 @@ void setup_donnees() {
 }
 
 
-float read_Temperature(){  
+uint16_t read_Temperature(){ 
 	if(ccs.available()){
 		temperature = ccs.calculateTemperature();
 	}else{
 		Serial.println("Sensor read ERROR!");
 		ccs.readData();
     }
-    return temperature;
+    return (uint16_t)temperature;
   }
 
 
-String read_CO2(){
-  String CO2_info;
+uint16_t read_CO2(){
+  uint16_t CO2_info;
 	if(!ccs.readData()){
-    CO2_info = String(ccs.geteCO2())+"|"+String(ccs.getTVOC());
+    CO2_info = ccs.geteCO2();
 	}else{
 		Serial.println("Sensor read ERROR!");
 		ccs.readData();
@@ -70,11 +70,24 @@ String read_CO2(){
  return CO2_info;
 }
 
-String read_mac(){
- return String(WiFi.macAddress());
+uint16_t read_CO2_TVOC(){
+  uint16_t CO2_info;
+  if(!ccs.readData()){
+    CO2_info = ccs.getTVOC();
+  }else{
+    Serial.println("Sensor read ERROR!");
+    ccs.readData();
+  }
+ return CO2_info;
 }
 
-double read_Piezo(){
+uint8_t read_mac(uint8_t *mac){
+  esp_efuse_read_mac(mac);
+  //Serial.printf("mac : %02X:%02X:%02X:%02X:%02X:%02X \n",mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);  
+  return *mac;
+}
+
+uint16_t read_Piezo(){
   /*SAMPLING*/
  microseconds = micros();
   for(int i=0; i<samples_piezo; i++)
@@ -91,11 +104,11 @@ double read_Piezo(){
   FFTP.Compute(vReal_piezo, vImag_piezo, samples_piezo, FFT_FORWARD); 
   FFTP.ComplexToMagnitude(vReal_piezo, vImag_piezo, samples_piezo); 
   double x = FFTP.MajorPeak(vReal_piezo, samples_piezo, samplingFrequency_piezo);
-  return x;
+  return (uint16_t)x;
 
 }
 
-double read_Son(){
+uint16_t read_Son(){
   /*SAMPLING*/
  microseconds = micros();
   for(int i=0; i<samples; i++)
@@ -112,6 +125,7 @@ double read_Son(){
   FFT.Compute(vReal, vImag, samples, FFT_FORWARD); 
   FFT.ComplexToMagnitude(vReal, vImag, samples); 
   double x = FFT.MajorPeak(vReal, samples, samplingFrequency);
-  return x;
+  
+  return (uint16_t)x;
 
 }
