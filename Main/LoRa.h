@@ -67,6 +67,10 @@ void LoRa_send_payload(uint8_t *payload, uint8_t payload_len, uint8_t check_byte
     Serial.println(payload[i]);
     Serial.println(".");
   }
+
+  LoRa.write(check_byte);
+  Serial.println(check_byte);
+  
   LoRa.endPacket();
 }
 

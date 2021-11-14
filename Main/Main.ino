@@ -29,7 +29,7 @@ void debug_trame(){
   uint16_t CO2_TVOC = (payload[12] * 256u) + payload[13];
   uint16_t Piezo = (payload[14] * 256u) + payload[15];
   
-  Serial.printf("Trame after cast : %C | %X:%X:%X:%X:%X:%X | %u | %u | %u | %u | %u | %d\n",payload[0],payload[1],payload[2],payload[3],payload[4],payload[5],payload[6],son,payload[9],CO2,CO2_TVOC,Piezo,payload[16]);
+  Serial.printf("Trame after cast : %C | %X:%X:%X:%X:%X:%X | %u | %u | %u | %u | %u | %d\n",payload[0],payload[1],payload[2],payload[3],payload[4],payload[5],payload[6],son,payload[9],CO2,CO2_TVOC,Piezo);
   
 }
 

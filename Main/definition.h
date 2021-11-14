@@ -18,8 +18,6 @@
 
 //Viable defini
 #define MEASURE 13
-#define uS_TO_S_FACTOR 1000000  /* Conversion seconde to micro seconde */
-#define TIME_TO_SLEEP  3600       /* Temps Sleep (en seconde)*/
 
 //  Variable Son 
 #define CHANNEL_SON 4

@@ -8,7 +8,7 @@
 float temperature;
 
 //Structure données
-struct datas { 
+struct data_trame { 
   char type; 
   uint8_t mac[6];
   double son;
@@ -176,8 +176,6 @@ uint8_t build_trame(uint8_t *payload){
 
   payload[14] = uint8_t((uint16_t(ds.Piezo) & 0xFF00) >> 8);
   payload[15] = uint8_t((uint16_t(ds.Piezo) & 0x00FF));
-  
-  payload[16] = uint8_t(ds.erreur);
   
   return *payload;
 }
