@@ -98,7 +98,7 @@ int read_CO2_TVOC(){
 
 uint8_t read_mac(uint8_t *mac){
   esp_efuse_read_mac(mac);
-  //Serial.printf("mac : %02X:%02X:%02X:%02X:%02X:%02X \n",mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);  
+  //Serial.printf("mac : %02X:%02X:%02X:%02X:%02X:%02X \n",mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
   return *mac;
 }
 
@@ -144,7 +144,7 @@ double read_Son(){
   return x;
 }
 
-uint8_t send_trame(uint8_t *payload){
+uint8_t build_trame(uint8_t *payload){
   
   ds.type = 'I';
   read_mac(ds.mac);

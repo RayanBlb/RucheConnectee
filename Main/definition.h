@@ -6,14 +6,11 @@
 #define SCK 18
 #define MISO 19
 #define MOSI 23
+#define CS 18
+
 #define SS 5
 #define RST 14
-#define DIO0 26
-
-//433E6 for Asia
-//866E6 for Europe
-//915E6 for North America
-#define BAND 866E6 
+#define DI0 26
 
 /**************************************/
 //  Variable Fonction                 //

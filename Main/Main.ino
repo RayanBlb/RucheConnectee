@@ -11,6 +11,9 @@ void setup() {
   digitalWrite(MEASURE,HIGH);
 
   setup_donnees();
+
+  SPI.begin(SCK, MISO, MOSI, CS);
+  LoRa.setPins(SS, RST, DI0);
   
   Serial.begin(9600);
 }
@@ -19,7 +22,7 @@ void debug_trame(){
   
   //Trame forme : I|macAdresse|son|temperature|CO2|TVOC|Piezo
   
-  send_trame(payload);
+  build_trame(payload);
 
   uint16_t son = (payload[7] * 256u) + payload[8];
   uint16_t CO2 = (payload[10] * 256u) + payload[11];
@@ -31,6 +34,7 @@ void debug_trame(){
 }
 
 void loop() {
-  send_trame(payload);
-  lora_test(payload);
+  build_trame(payload);
+  //debug_trame();
+  lora_send_trame(payload);
 }
