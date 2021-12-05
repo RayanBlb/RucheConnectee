@@ -20,4 +20,4 @@
 #define MEASURE 13
 
 //Taille payload
-#define PAYLOAD_LEN 16
+#define PAYLOAD_LEN 17

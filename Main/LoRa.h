@@ -81,7 +81,7 @@ void LoRa_stop(){
 }
 
 void lora_send_trame(uint8_t *payload){
-  LoRa_start(LoRa_param_1);
-  LoRa_send_payload(payload,PAYLOAD_LEN,0);
-  LoRa_stop();
+  LoRa_start(LoRa_param_1); //Permet d'initialiser Lora avec les bonnes valeurs
+  LoRa_send_payload(payload,PAYLOAD_LEN,0); //Permet d'envoyer le payload
+  LoRa_stop(); //Stop Lora
 }

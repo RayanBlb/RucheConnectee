@@ -4,17 +4,14 @@
 
 #include "definition.h"
 
-//Variable de température
-float temperature;
-
 //Structure données
 struct data_trame { 
   char type; 
   uint8_t mac[6];
   double son;
   float temperature;
-  int CO2;
-  int CO2_TVOC;
+  uint16_t CO2;
+  uint16_t CO2_TVOC;
   double Piezo;
   int erreur;
 } ds;
@@ -53,29 +50,35 @@ void setup_donnees() {
 
   //Calibrage capteur température
   while(!ccs.available());
-  temperature = ccs.calculateTemperature();
-  ccs.setTempOffset(temperature - 25.0);
+  ds.temperature = ccs.calculateTemperature();
+  ccs.setTempOffset(ds.temperature - 25.0);
 
+  //Calibrage capteur son
   sampling_period_us_piezo = round(1000000*(1.0/samplingFrequency_piezo));
   sampling_period_us = round(1000000*(1.0/samplingFrequency));
-  Serial.begin(115200);
-  while(!Serial);
-  Serial.println("Ready");
 }
 
-float read_Temperature(){
+float read_Temperature(){ //permet de récuperer la température
+  char buff [10];
+  
   if(ccs.available()){
-    temperature = ccs.calculateTemperature();
+    ds.temperature = ccs.calculateTemperature();
   }else{
     Serial.println("Sensor read ERROR!");
     ccs.readData();
-    }
-  return temperature;
+  }
+
+  ds.temperature += 20; //Permet de ne pas avoir de température négative
+  
+  sprintf(buff,"%.1f",ds.temperature); //Permet d'avoir une valeur un chiffre après la virgule
+  ds.temperature = strtof(buff, NULL); //Char to int
+  
+  return ds.temperature;
 }
 
 
-int read_CO2(){
-  int CO2_info;
+uint16_t read_CO2(){ //Permet de récupere la mesure de dioxyde de carbone estimée stockée
+  uint16_t CO2_info;
 	if(!ccs.readData()){
     CO2_info = ccs.geteCO2();
 	}else{
@@ -85,8 +88,8 @@ int read_CO2(){
  return CO2_info;
 }
 
-int read_CO2_TVOC(){
-  int CO2_info;
+uint16_t read_CO2_TVOC(){ //permet de récupere la mesure des composés organiques volatils totaux stockés
+  uint16_t CO2_info;
   if(!ccs.readData()){
     CO2_info = ccs.getTVOC();
   }else{
@@ -96,10 +99,9 @@ int read_CO2_TVOC(){
  return CO2_info;
 }
 
-uint8_t read_mac(uint8_t *mac){
+uint8_t read_mac(uint8_t *mac){//Permet de récuperer l'adresse mac
   esp_efuse_read_mac(mac);
   //Serial.printf("mac : %02X:%02X:%02X:%02X:%02X:%02X \n",mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
-  return *mac;
 }
 
 double read_Piezo(){
@@ -144,7 +146,7 @@ double read_Son(){
   return x;
 }
 
-uint8_t build_trame(uint8_t *payload){
+uint8_t build_trame(uint8_t *payload){ //permet de fabriquer la trame
   
   ds.type = 'I';
   read_mac(ds.mac);
@@ -166,16 +168,15 @@ uint8_t build_trame(uint8_t *payload){
   payload[7] = uint8_t((uint16_t(ds.son) & 0xFF00) >> 8);
   payload[8] = uint8_t((uint16_t(ds.son) & 0x00FF));
   
-  payload[9] = uint8_t(ds.temperature);
+  payload[9] = uint8_t((uint16_t(ds.temperature*10) & 0xFF00) >> 8);//Multiplie la valeur de la température par 10 pour ne pas avoir de nombre a virgule
+  payload[10] = uint8_t((uint16_t(ds.temperature*10) & 0x00FF));
 
-  payload[10] = uint8_t((uint16_t(ds.CO2) & 0xFF00) >> 8);
-  payload[11] = uint8_t((uint16_t(ds.CO2) & 0x00FF));
+  payload[11] = uint8_t((uint16_t(ds.CO2) & 0xFF00) >> 8);
+  payload[12] = uint8_t((uint16_t(ds.CO2) & 0x00FF));
 
-  payload[12] = uint8_t((uint16_t(ds.CO2_TVOC) & 0xFF00) >> 8);
-  payload[13] = uint8_t((uint16_t(ds.CO2_TVOC) & 0x00FF));
+  payload[13] = uint8_t((uint16_t(ds.CO2_TVOC) & 0xFF00) >> 8);
+  payload[14] = uint8_t((uint16_t(ds.CO2_TVOC) & 0x00FF));
 
-  payload[14] = uint8_t((uint16_t(ds.Piezo) & 0xFF00) >> 8);
-  payload[15] = uint8_t((uint16_t(ds.Piezo) & 0x00FF));
-  
-  return *payload;
+  payload[15] = uint8_t((uint16_t(ds.Piezo) & 0xFF00) >> 8);
+  payload[16] = uint8_t((uint16_t(ds.Piezo) & 0x00FF));
 }

@@ -26,4 +26,4 @@
 #define CHANNEL_PIEZO 2
 
 //Taille payload
-#define PAYLOAD_LEN 16
+#define PAYLOAD_LEN 17

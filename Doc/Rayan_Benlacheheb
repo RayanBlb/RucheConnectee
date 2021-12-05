@@ -1,3 +1,17 @@
-Scéance n°1 (27/08/2021) : Prise de connaissance du projet, création du GIT
-Scéance n°2 (10/09/2021) : Etude de la documentation technique et test du module LORA
-Scéance n°3 (17/09/2021) : Début de la configuration de la trame LORA, étude du code et ajout commentaire
+Scéance n°1 (27/08/2021) : Prise de connaissance du projet, création du GIT.
+
+Scéance n°2 (10/09/2021) : Etude de la documentation technique et test du module LORA.
+
+Scéance n°3 (17/09/2021) : Début de la configuration de la trame LORA, étude du code et ajout commentaire.
+
+Scéance n°4 (23/09/2021) : Reajustement du code, optimation du code. Premier prototype de la trame lora.
+
+Scéance n°5 (30/09/2021) : Analyse d'un code avec trame lora et routine lora deja mis en place (Code donner par le prof). Ajustement de notre trame par rapport a ce code avec notamment mis en place d'une structure afin de mieux géner les données que nous allons transmettre.
+
+Scéance n°6 (22/10/2021) : Mise a jours de la trame avec les différentes données converti en uint8_t. Certaine données stocker plus que sur 8 bits sont split en deux fois 8 bits. Mise en place d'une fois qui permet de debug la trame. La fonction récuperer les données après traitement (Juste avant d'etre envoyer) réasemble les données afin de s'assurer que ce qui est envoyer correspond bien au données récuperer via les capteurs. Nous avons également appris comment configurer notre passerelle afin de faire les premiers tester de connexion entre la passerelle et notre carte.
+
+Scéance n°7 (12/11/2021) : premier teste de connectivité entre notre carte et la passerelle. Utilisation de putty afin d'afficher les données recu par la passerelle. Pour l'instant rien n'ai recu par la passerelle, nous avons récuperer un autre esp32 afin de déterminer si il y a un probleme au niveau du code notre carte ou si il y a un problème physique sur notre carte.
+
+Scéance n°8 (14/11/2021) : le problème de connexion etait au niveau de notre code (Oublie d'initialisation des pins du module LoRa). Problème résolu ! Mise en place d'un code de tester envoyer au prof afin qu'il puisse de son coté mettre en place un systeme afin de récuperer nos données.
+
+Scéance n°9 (05/12/2021) : Prise en compte des retours du prof vis a vis de notre code. Modification du type de certaine variable, optimisation...
