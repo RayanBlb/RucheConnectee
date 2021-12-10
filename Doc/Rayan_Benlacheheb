@@ -15,3 +15,8 @@ Scéance n°7 (12/11/2021) : premier teste de connectivité entre notre carte et
 Scéance n°8 (14/11/2021) : le problème de connexion etait au niveau de notre code (Oublie d'initialisation des pins du module LoRa). Problème résolu ! Mise en place d'un code de tester envoyer au prof afin qu'il puisse de son coté mettre en place un systeme afin de récuperer nos données.
 
 Scéance n°9 (05/12/2021) : Prise en compte des retours du prof vis a vis de notre code. Modification du type de certaine variable, optimisation...
+
+Scéance n°10 (10/12/2021) : Passage a l'oral, determination des nouveaux objectif :
+* Determination de l'electronique d'amplification pour le piezo
+* Design du nouveau pcp avec piezo intégré
+* Intégration du code IA dans notre code, ajout d'un octet a la fin de la trame avant le l'octet d'erreur
