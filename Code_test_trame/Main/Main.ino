@@ -23,10 +23,10 @@ void debug_trame(){
   /* I = payload[0] | 1 * uint8_t
   macAdresse = payload[1] to payload[6] | 6 * uint8_t
   son = payload[7] et payload[8] | 1 * uint8_t
-  temperature = payload[9] | 1 * uint8_t
-  CO2 = payload[10] et payload[11] | 2 * uint8_t
-  CO2_TVOC = payload[12] et payload[13] | 2 * uint8_t
-  Piezo = payload[14] et payload[15] | 2 * uint8_t
+  temperature = payload[9] et payload[10] | 2 * uint8_t
+  CO2 = payload[11] et payload[12] | 2 * uint8_t
+  CO2_TVOC = payload[13] et payload[14] | 2 * uint8_t
+  Piezo = payload[15] et payload[16] | 2 * uint8_t
   code_erreur = 1 * uint8_t <-- information transmises via la fonction "LoRa_send_payload" */
 
   build_trame(payload);
