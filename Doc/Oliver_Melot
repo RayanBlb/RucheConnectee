@@ -58,7 +58,7 @@ Les objectifs de cette dernière scéance de l'année était de réaliser la pr�
 Il n'y avait pas de recherche ni de développement sur le projet cependant un retour sur les modifications ou changements à envisager.
 
 Semestre II:
-Compte rendu dixième scéance de projet: 01/10/2021
+Compte rendu dixième scéance de projet: 07/01/2022
 
 Objectifs de scéance:
 
@@ -67,4 +67,14 @@ Objectifs de scéance:
 - définir un circuit facile a mettre en place qui répondrais aux critères 
 
 En se replongeant dans nos discussion, et nos recherches on s'est aperçus que la sensibilité du piezo doit être calibrer afin d'adapté un circuit utillisable 
-qui permettrais de détecter ces fameuse vibrations venant de frelons.
+qui permettrais de détecter ces fameuse vibrations venant des abeilles.
+
+Compte rendu onzième scéance de projet: 03/02/2022
+
+L'objectif de cette scéance était de déterminé une amplification optimale pour le capteur piezo vis à vis des fréquences lié aux vibrations des abeilles.
+On pense que la détection risque d'être très largement bruité par différent parasite, comme par exemple : le vibrations lié a des forts coups de vents, 
+la fréquence des abeilles pourrait être potentiellement atténué par la caisse en bois de la ruche.
+Des test préalable seraient préférables.
+
+Sinon nous avons repris le schématic de la carte afin d'udpate celle-ci et d'apdapté pour le rajout du piezo.
+
