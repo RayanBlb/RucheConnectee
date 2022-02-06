@@ -69,12 +69,17 @@ Objectifs de scéance:
 En se replongeant dans nos discussion, et nos recherches on s'est aperçus que la sensibilité du piezo doit être calibrer afin d'adapté un circuit utillisable 
 qui permettrais de détecter ces fameuse vibrations venant des abeilles.
 
-Compte rendu onzième scéance de projet: 03/02/2022
+Compte rendu onzième/douzieme scéance de projet: 03 et 04/02/2022
 
 L'objectif de cette scéance était de déterminé une amplification optimale pour le capteur piezo vis à vis des fréquences lié aux vibrations des abeilles.
 On pense que la détection risque d'être très largement bruité par différent parasite, comme par exemple : le vibrations lié a des forts coups de vents, 
 la fréquence des abeilles pourrait être potentiellement atténué par la caisse en bois de la ruche.
 Des test préalable seraient préférables.
 
-Sinon nous avons repris le schématic de la carte afin d'udpate celle-ci et d'apdapté pour le rajout du piezo.
+Sinon nous avons repris le schématic de la carte afin d'udpate celle-ci et d'apdapté pour le rajout du piezo, Pour ma part je m'occupes de retranscrire le pcb sur un
+logiciel diffrent de eagle car ayant l'habitude et la facilité avec KiCad ce sera plus simple. Je cherche aussi à optimiser les composants selectionné et je travail en parallèle
+du groupe qui s'occupe du sytème piezo électrique. Tout cela dans le but de recréer une carte plus optimisée en terme d'énergie qui aurait tous les capteurs voulus avec des mesure et test
+sur la consomation.
+
+
 
