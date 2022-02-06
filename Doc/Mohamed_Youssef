@@ -6,3 +6,11 @@ Scéance n°5 (01/10/2021) : Lecture des données sur ociloscope.
 Scéance n°6 et n°7 (22/10/2021) : Prise en main du piezo électrique avec câble jack et teste (Manque ampli)
 Scéance n°8 (12/11/2021) : preparation powerpoint 
 
+Compte rendu onzième scéance de projet: 03/02/2022
+
+L'objectif de cette scéance était de déterminé une amplification optimale pour le capteur piezo vis à vis des fréquences lié aux vibrations des abeilles.
+On pense que la détection risque d'être très largement bruité par différent parasite, comme par exemple : le vibrations lié a des forts coups de vents, 
+la fréquence des abeilles pourrait être potentiellement atténué par la caisse en bois de la ruche.
+Des test préalable seraient préférables.
+
+Sinon nous avons repris le schématic de la carte afin d'udpate celle-ci et d'apdapté pour le rajout du piezo.
