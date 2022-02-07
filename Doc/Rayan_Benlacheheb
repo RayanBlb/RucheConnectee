@@ -1,22 +1,65 @@
 Scéance n°1 (27/08/2021) : Prise de connaissance du projet, création du GIT.
 
+
+
 Scéance n°2 (10/09/2021) : Etude de la documentation technique et test du module LORA.
+
+
 
 Scéance n°3 (17/09/2021) : Début de la configuration de la trame LORA, étude du code et ajout commentaire.
 
-Scéance n°4 (23/09/2021) : Reajustement du code, optimation du code. Premier prototype de la trame lora.
 
-Scéance n°5 (30/09/2021) : Analyse d'un code avec trame lora et routine lora deja mis en place (Code donner par le prof). Ajustement de notre trame par rapport a ce code avec notamment mis en place d'une structure afin de mieux géner les données que nous allons transmettre.
 
-Scéance n°6 (22/10/2021) : Mise a jours de la trame avec les différentes données converti en uint8_t. Certaine données stocker plus que sur 8 bits sont split en deux fois 8 bits. Mise en place d'une fois qui permet de debug la trame. La fonction récuperer les données après traitement (Juste avant d'etre envoyer) réasemble les données afin de s'assurer que ce qui est envoyer correspond bien au données récuperer via les capteurs. Nous avons également appris comment configurer notre passerelle afin de faire les premiers tester de connexion entre la passerelle et notre carte.
+Scéance n°4 (23/09/2021) : Réajustement du code, optimisation du code. Premier prototype de la trame lora.
 
-Scéance n°7 (12/11/2021) : premier teste de connectivité entre notre carte et la passerelle. Utilisation de putty afin d'afficher les données recu par la passerelle. Pour l'instant rien n'ai recu par la passerelle, nous avons récuperer un autre esp32 afin de déterminer si il y a un probleme au niveau du code notre carte ou si il y a un problème physique sur notre carte.
 
-Scéance n°8 (14/11/2021) : le problème de connexion etait au niveau de notre code (Oublie d'initialisation des pins du module LoRa). Problème résolu ! Mise en place d'un code de tester envoyer au prof afin qu'il puisse de son coté mettre en place un systeme afin de récuperer nos données.
 
-Scéance n°9 (05/12/2021) : Prise en compte des retours du prof vis a vis de notre code. Modification du type de certaine variable, optimisation...
+Scéance n°5 (30/09/2021) : Analyse d'un code avec trame lora et routine lora déjà mis en place (Code donner par le prof). Ajustement de notre trame par rapport a ce code avec notamment mis en place d'une structure afin de mieux gérer les données que nous allons transmettre.
 
-Scéance n°10 (10/12/2021) : Passage a l'oral, determination des nouveaux objectif :
-* Determination de l'electronique d'amplification pour le piezo
+
+
+Scéance n°6 (22/10/2021) : Mise à jours de la trame avec les différentes données converties en uint8_t. Certaine données stocker plus que sur 8 bits sont split en deux fois 8 bits. Mise en place d'une fois qui permet de debug la trame. La fonction récupérer les données après traitement (Juste avant d'être envoyé) réassemble les données afin de s'assurer que ce qui est envoyer correspond bien au données récuperer via les capteurs. Nous avons également appris comment configurer notre passerelle afin de faire les premiers tester de connexion entre la passerelle et notre carte.
+
+
+Scéance n°7 (12/11/2021) : Premier teste de connectivité entre notre carte et la passerelle. Utilisation de putty afin d'afficher les données reçus par la passerelle. Pour l'instant rien n'est reçu par la passerelle, nous avons récupérer un autre esp32 afin de déterminer s'il y a un problème au niveau du code notre carte ou s'il y a un problème physique sur notre carte.
+
+
+
+Scéance n°8 (14/11/2021) : Le problème de connexion était au niveau de notre code (Oublie d'initialisation des pins du module LoRa). Problème résolu ! Mise en place d'un code de tester envoyer au prof afin qu'il puisse de son côté mettre en place un systeme afin de récuperer nos données.
+
+
+
+Scéance n°9 (05/12/2021) : Prise en compte des retours du prof vis-à-vis de notre code. Modification du type de certaines variables, optimisation...
+
+
+
+Scéance n°10 (10/12/2021) : Passage à l'oral, détermination des nouveaux objectifs :
+* Détermination de l'électronique d'amplification pour le piezo
 * Design du nouveau pcp avec piezo intégré
-* Intégration du code IA dans notre code, ajout d'un octet a la fin de la trame avant le l'octet d'erreur
+* Intégration du code IA dans notre code, ajout d'un octet à la fin de la trame avant le l'octet d'erreur
+
+
+Scéance n°11 (07/01/2022) : Prise de connaissance du code de l'IA. Ce code est un code complexe que nous essayons de comprendre. Nous sommes deux à travailler dessus, Olivier et moi. Après avoir fait des recherches sur Internet à propos du code, nous sommes tombés sur un pdf qui parle plus en détail de ce projet RuchESIEA. 
+
+Ce soft a été développé pour un lolin32 lite, ce qui normalement nous permettrait quand même de le faire tourner sur un esp32. Ce soft marche par analyse de segment de 30s de son, traité en moins de 10s d'après le pdf. 
+
+Ce soft a l'air de fonctionner en parallèle avec un serveur, serveur pour lequel il y a un autre Gitlab avec le soft à installé sur son ordinateur afin d'émuler un serveur sur son réseau local. Il semblerait que le soft de l'esp32 envoie une requête avec les données récolté via le wifi de l'esp32 à ce serveur.
+
+Gitlab soft serveur : https://gitlab.esiea.fr/heiss/ruchesiea/-/tree/main/
+Gitlab soft esp32 : https://gitlab.esiea.fr/heiss/ruchesiea-fw
+
+
+
+Scéance n°12 (03/02/2022) : Nous essayons toujours de faire marcher le soft ainsi que le serveur. Afin de faire fonctionner le serveur, j'ai installé VirtualBox afin de le virtualiser sur mon PC et d'avoir le serveur sur mon réseau local et ainsi pouvoir y accéder depuis ce dernier. Je n'est toujours pas réussi a le virtualiser, il y a un problème de dépendance de paquet (django-crispy-forms).  
+
+Concernant le soft esp32 ce dernier est trop compliquer a comprendre sans commentaire. Comme évoqué précédemment ce code est issu d'un projet intitulé "RuchESIEA" initier par Manon Fournier et Gauthier Heiss 2 élèves de ESIEA paris. Afin de m'aider à comprendre le projet j'ai pris contact avec Manon Fournier, je l'ai ajouté sur linkedin j'attends une réponse de sa part. L'idée est de lui demander plus de précision sur le code notamment ce qu'il prend en entrée et ce qu'il donne en sortie.
+
+
+
+Scéance n°13 (04/02/2022) : Nous avons revu nos priorités. En effet nous allons déjà commencer par réajuster la trame comme suggérée par M.Peter. Nous avons donc inclus dans la trame les données suivantes : Hygro, v_bat, charg_bat et IA. Ce qui va nous permettre de récupérer les données hygrométriques, tension de la batterie, pourcentage de la batterie et les infos liée à l'IA. 
+
+Une fois ça fait nous avons essayé de flasher le nouveau code en .bin transmit par M.Peter dans la gateway. Mais là petit problème, nous n'avons pas réussi ! En effet nous avons essayé via le soft "esptool.py" et la commande : sudo esptool.py --chip esp32 --port /dev/ttyUSB0  write_flash -z 0x1000 /home/benlacheheb/Projet/RucheConnectee/firm.bin
+
+Ce dernier flash bien quelque chose dans la gateway mais quand nous essayons d'afficher via putty la sortie de la gateway rien ne s'affiche ! 
+
+Pour la prochaine séance nous allons essayer d'utiliser un autre soft : "nodemcu-pyflasher" (https://github.com/marcelstoer/nodemcu-pyflasher). Je pense que nous allons avoir besoin du code de la gateway, il serait intéressant de mixer la passerelle déjà mise en place par M.Peter avec le soft du serveur RuchESIEA afin de récupérer les données.

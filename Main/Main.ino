@@ -30,12 +30,17 @@ void debug_trame(){ //Fonction de debug de la trame
   uint16_t CO2_TVOC = (payload[13] * 256u) + payload[14];
   uint16_t Piezo = (payload[15] * 256u) + payload[16];
   
-  Serial.printf("Trame after cast : %C | %X:%X:%X:%X:%X:%X | %u | %u | %u | %u | %u\n",payload[0],payload[1],payload[2],payload[3],payload[4],payload[5],payload[6],son,temperature,CO2,CO2_TVOC,Piezo);
+  uint16_t hygro = (payload[17] * 256u) + payload[18];
+  uint16_t v_bat = (payload[19] * 256u) + payload[20];
+  uint16_t charg_bat = (payload[21] * 256u) + payload[22];
+  uint16_t IA = (payload[23] * 256u) + payload[24];
+  
+  Serial.printf("Trame after cast : %C | %X:%X:%X:%X:%X:%X | %u | %u | %u | %u | %u | %u | %u | %u | %u\n",payload[0],payload[1],payload[2],payload[3],payload[4],payload[5],payload[6],son,temperature,CO2,CO2_TVOC,Piezo,hygro,v_bat,charg_bat,IA);
   
 }
 
 void loop() {
-  build_trame(payload);
-  //debug_trame();
+  //build_trame(payload);
+  debug_trame();
   lora_send_trame(payload);
 }
