@@ -10,3 +10,5 @@ Scéance n°4 (17/09/2021) : Etude du module LORA et ces spécification
 Scéance n°10 (03/02/2022 & 04/02/2022) : Réalisation d'un schéma pour une amplification du signal du capteur piezo.
 Le but est de detester une vibration ( bourdonnement d'abeille) et de pouvoir traiter le signal fourni. 
 Mais notre schéma testé etais faux, car notre schéma a cause de la resistance d'entré du schema, il faudra utilisé un transistor mosfet a la place du transistor bipolaire utilisé.
+
+Seance n°11 (10/02/2022) : regarder et etudier un scheme d'un JFET source commun 
