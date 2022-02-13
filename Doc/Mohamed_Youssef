@@ -1,13 +1,18 @@
-Scéance n°1 (27/08/2021) : Prise de connaissance du projet, création du GIT
-Scéance n°2 (10/09/2021) : Etude de la documentation technique et répartition des taches en fonction des compétences de chacun et du projet.
-Scéance n°3 (17/09/2021) : Etude du routage de la carte électronique et compréhension du fonctionnement du module piezo électrique.
-Scéance n°4 (23/09/2021) : Réalisation d'une carte sur maquette pour tester la lecture de senseur piezo-électrique.
-Scéance n°5 (01/10/2021) : Lecture des données sur ociloscope.
-Scéance n°6 et n°7 (22/10/2021) : Prise en main du piezo électrique avec câble jack et teste (Manque ampli)
-Scéance n°8 (12/11/2021) : preparation powerpoint 
+Séance n°1 (27/08/2021) : Prise de connaissance du projet, création du GIT
+Séance n°2 (10/09/2021) : Etude de la documentation technique et répartition des taches en fonction des compétences de chacun et du projet.
+Séance n°3 (17/09/2021) : Etude du routage de la carte électronique et compréhension du fonctionnement du module piezo électrique.
+Séance n°4 (23/09/2021) : Réalisation d'une carte sur maquette pour tester la lecture de senseur piezo-électrique.
+Séance n°5 (01/10/2021) : Lecture des données sur ociloscope.
+Séance n°6 et n°7 (22/10/2021) : Prise en main du piezo électrique avec câble jack et teste (Manque ampli)
+Séance n°8 (12/11/2021) : preparation powerpoint 
 
-Scéance n°9 (07/01/2022) : Malade
-Scéance n°10 (03/02/2022 & 04/02/2022) : Réalisation d'un schéma pour une amplification optimal du bruit venant du capteur piezo sur la maquette.
+Séance n°9 (07/01/2022) : Malade
+Séance n°10 (03/02/2022 & 04/02/2022) : Réalisation d'un schéma pour une amplification optimal du bruit venant du capteur piezo sur la maquette.
 Le but d'avoir un meilleur signal de sortie pour pouvoir identifier les vibrations des abeilles. Mais notre schéma, c'est avéré faux, car notre schéma n'amplifie pas donc il faut changer d'ampli pour mettre un mosfet à la place. 
 
-
+Séance n°11 (10/02/2022 & 11/02/2022) : Nous avons commencé la séance par nous familiariser avec le trasistor 
+2N3819. Grâce à la documentation technique (https://pdf1.alldatasheet.com/datasheet-pdf/view/171937/FAIRCHILD/2N3819.html) nous avons pu identifier VGS=Vp=8V, et IDss=20mA. 
+On a réalisé ce schéma suivant.(je n'arrive pas à insert mon image).
+Mais le premier schéma ne fonctionnait pas, car il était pas adapté à notre transistor, on a donc réalisé un schéma source commun pour notre MOSFET(même problème je n'arrive pas a aisert les images).
+Pour ce montage, on a pris R2 de 1M ohm, R3 1K et R4 100 pour une alimentation de 5V en entrée.
+Par la suite, nous avons effectué des mesures pour les calculs du nouveau schéma ou nous avons mis un GBF(20HZ) à la place du piezo afin d'avoir un vrai signal pour notre essai.
