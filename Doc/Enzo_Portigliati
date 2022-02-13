@@ -11,4 +11,6 @@ Scéance n°10 (03/02/2022 & 04/02/2022) : Réalisation d'un schéma pour une am
 Le but est de detester une vibration ( bourdonnement d'abeille) et de pouvoir traiter le signal fourni. 
 Mais notre schéma testé etais faux, car notre schéma a cause de la resistance d'entré du schema, il faudra utilisé un transistor mosfet a la place du transistor bipolaire utilisé.
 
-Seance n°11 (10/02/2022) : regarder et etudier un scheme d'un JFET source commun 
+Seance n°11 (10/02/2022) : Réalisation d'un schéma pour une amplification du signal du capteur piezo avec un transistor a effet de champ (MOSFET).
+-Calcul des résistances et des tensions de fonctionnement du transistor (VDS, VGS).
+-Test sur la carte pour le bon fonctionnement mais pas conculant. Mesure pour effectué de nouveaux calcul pour le nouveau schéma.
