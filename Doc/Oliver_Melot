@@ -81,5 +81,19 @@ logiciel diffrent de eagle car ayant l'habitude et la facilité avec KiCad ce se
 du groupe qui s'occupe du sytème piezo électrique. Tout cela dans le but de recréer une carte plus optimisée en terme d'énergie qui aurait tous les capteurs voulus avec des mesure et test
 sur la consomation.
 
+Compte rendu douzieme et treizième scéance de projet: 10 et 11/02/2022
 
+L'objectif de ces scéances furent pour ma part de finir de retranscrire le schematic existant du pcb founit par les anciens eleves sur le logiciel KICAD, Il faudrais que je recreer des librairie de composant,
+car certains sont intracable par manque de documentation du PCB réalisé anterieurement.
+De plus Mr Peter, nous a rappeler qu'avant de soumettre des modification sur le ce PCB, il fallait s'assurer des limitations du projets c'est a dire de plages de valeurs des capteurs,
+ainsi que leur fiabilité, ce que nous avions malheureusement négligé dans un premier temps. En parallele avec Olivier j'ai chercher a refaire fonctionner le code precedement mis en place et qui,
+nous avait permis de veriifer de maniere inital le retour d'information provenant des capteurs. Cependant il semblerait que le setup sur mon ordianteur ne soit pas a jours donc je nmai pu effectuer
+mes test. 
+Je me suis donc concentré sur les optimisations de la consommation d'énergie, et notamment sur le ccs811 qui est le capteur de CO2/ TVOC qui peux fonctionner dans 5 modes distinct.
+Ces quatres modes permettent de faire varier l'intervalle de temps d'acquisition du capteur. On peut désactivé le capteur en le mettant en mode "idle", le mettre en lecture toutes 
+les 1 / 10 / 60 secondes d'intervalles ou toutes les 250ms. 
+Ainsi en se placant dans le modes 60 secondes on reduirait grandement le nombre d'informations traité et par ailleurs la consomation systeme.
+On pourrait meme aller plus loin et mettre en mode idle le systeme sur certainnes periode de temps pour limiter son alimentation et donc la consommation du systeme.
+
+Je m'interesserais pour la suite des cours aux possibilité envisageable de gain en consomation sur les autres modules de la carte.
 
