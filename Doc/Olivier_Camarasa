@@ -16,3 +16,10 @@ Scéance n°11 (03/02/2022 & 04/02/2022) : Blocage sur le code IA, fonctions fs 
 Scéance n°12 (10/02/2022 & 11/02/2022) : Etude du schematic réalisé par le groupe précédent avec Oliver Melot, reproduction du schematic afin de frefaire une carte contenant le capteur piezo.
                                          Test des différents capteur présent sur la carte, problème rencontré le code ne semble pas compiler correctement et on lit un message d'erreur sur le terminal série.
                                          Reproduction des footprints des composants de la carte car certaines références ne sont pas disponibles en ligne (Capteurs CCS811 et ADMP401, voir https://github.com/RayanBlb/RucheConnectee/tree/main/Export).
+Scéance n°13 (03/03/2022 & 04/03/2022) : Le but de la scéance était de développer un code permettant de tester les différents composants de la carte
+                                         Après quelques problèmes d'étallonage, les valeurs des différents capteurs ont pu être testées
+                                         Pour l'instant nous n'utilisons pas le capteur de température indépendant mais plutôt celui positionné sur la même puce que le CS811. 
+                                         Il est à noter que le capteur à occasionnelemnt un offset variant de 0.5 à 1°C, utilisé l'autre capteur si nous en avons le temps pourrait s'avérer utile afin de comparer les valeurs et calculer l'erreur d'offset. 
+                                         En attendant nous allons nous utiliser de ce capteur.
+                                         Voir le fichier "TestCapteurs" : https://github.com/RayanBlb/RucheConnectee/tree/main/TestCapteurs.
+                                         Pour la prochaine scéance, les valeurs CO2 et TVOC doivent encore être comparées aux valeurs attendus après initialisation de 20 minutes et vérifier les calculs liés à la FFT.
