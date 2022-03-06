@@ -14,3 +14,10 @@ Mais notre schéma testé etais faux, car notre schéma a cause de la resistance
 Seance n°11 (10/02/2022) : Réalisation d'un schéma pour une amplification du signal du capteur piezo avec un transistor a effet de champ (MOSFET).
 -Calcul des résistances et des tensions de fonctionnement du transistor (VDS, VGS).
 -Test sur la carte pour le bon fonctionnement mais pas conculant. Mesure pour effectué de nouveaux calcul pour le nouveau schéma.
+
+Seance n°11 (03/03/2022 & 04/03/2022) : Après presque 1 mois sans projet, nous avons decidé de reprendre la ou nous avons fini la derniere fois, 
+c'est a dire refaire des test avec un transistor a effet de champ en utilisant un montage source commmune. 
+Donc l'objectif des 2 seance est de tester des montage d'amplification de signal tel une sinusoide a une frequence entre 20Hz a 20kHz (fréquence voix humaine).
+Après les calcul des composant ainsi que le montage, nous avons réaliser que le montage ne faisait pas une amplification mais plutot l'ajout d'une constante continue.
+Pour les prochaine seance, nous souhaitons tester plusieurs montage soit avec un AOP ( meme si cela utilise des transistor), 
+soit continuer sur le transistor a effet de champ pour comprendre surement nos erreur faites. 
