@@ -16,3 +16,7 @@ On a réalisé ce schéma suivant.(je n'arrive pas à insert mon image).
 Mais le premier schéma ne fonctionnait pas, car il était pas adapté à notre transistor, on a donc réalisé un schéma source commun pour notre MOSFET(même problème je n'arrive pas a aisert les images).
 Pour ce montage, on a pris R2 de 1M ohm, R3 1K et R4 100 pour une alimentation de 5V en entrée.
 Par la suite, nous avons effectué des mesures pour les calculs du nouveau schéma ou nous avons mis un GBF(20HZ) à la place du piezo afin d'avoir un vrai signal pour notre essai.
+
+Séance n°12 (03/03/2022 & 04/0"/2022) : Nous avons continuer nos experiences avec le GBF nous avons joué sur sa frequence afin de voir le signal moduler.
+ Donc nous avons mis 1khz puis 2khz et nous avons augmenter, mais avec le schéma que nous avons precédament le siganl de sortie ne correspondais pas, nous avons donc effectué de nouveau calcule pour les reistance.
+ Les resistance R4 et R1 que nous avons changer R4 est de 100ohm maintenant elle est de 1000ohm et R1 de 1K à 1Ok.
