@@ -17,7 +17,11 @@ Mais le premier schéma ne fonctionnait pas, car il était pas adapté à notre 
 Pour ce montage, on a pris R2 de 1M ohm, R3 1K et R4 100 pour une alimentation de 5V en entrée.
 Par la suite, nous avons effectué des mesures pour les calculs du nouveau schéma ou nous avons mis un GBF(20HZ) à la place du piezo afin d'avoir un vrai signal pour notre essai.
 
-Séance n°12 (03/03/2022 & 04/0"/2022) : Nous avons continuer nos experiences avec le GBF nous avons joué sur sa frequence afin de voir le signal moduler.
- Donc nous avons mis 1khz puis 2khz et nous avons augmenter, mais avec le schéma que nous avons precédament le siganl de sortie ne correspondais pas, nous avons donc effectué de nouveau calcule pour les reistance.
- Les resistance R4 et R1 que nous avons changer R4 est de 100ohm maintenant elle est de 1000ohm et R1 de 1K à 1Ok. Il y a que a ce moment ou notre signal d'entree etait de 100mV et 3V en sortie on a donc reussi a amplifier le signal.
- Nous venant donc a nous pauser si cette amplification est assez concecante pour pouvoir manipuler le pizo ou bien il nous faudrai une amplification plus grande, voir meme differente.
+Séance n°12 (03/03/2022 & 04/0"/2022) : Nous avons continué nos expériences avec le GBF, nous avons joué sur sa fréquence afin de voir le signal moduler.
+Donc nous avons mis 1khz puis 2khz et nous avons augmenter, mais avec le schéma que nous avons ne fonctionne pas comme on veut l'amplification n'est pas suffisant, le signal de sortie ne correspondais pas,
+nous avons donc effectué de nouveau calcule pour les résistances.
+Les résistances R4 et R1 dont nous avons changé R4 qui était de 100 ohm maintenant elle est de 1000 ohm et R1 de 1K à 1Ok.
+Il y a qu'à ce moment où notre signal d'entrée était de 100mV et 3,3V en sortie mais continue. 
+Nous venant donc à nous demander si cette amplification est assez conséquente pour pouvoir manipuler le pizo ou bien il nous faudra-t-il une amplification plus grande,
+voire même différente. Nous allons de nouveau modifier le montage les valeurs des resistances voir si nos valeurs (Io,IDSS,Vgs, ID) sont correct.
+on veut tester différents montages soit avec un AOP (même s'il utilise des transistors), ou continuer sur le transistor à effet de champ pour comprendre sûrement nos erreurs.
