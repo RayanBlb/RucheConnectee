@@ -19,4 +19,5 @@ Par la suite, nous avons effectué des mesures pour les calculs du nouveau sché
 
 Séance n°12 (03/03/2022 & 04/0"/2022) : Nous avons continuer nos experiences avec le GBF nous avons joué sur sa frequence afin de voir le signal moduler.
  Donc nous avons mis 1khz puis 2khz et nous avons augmenter, mais avec le schéma que nous avons precédament le siganl de sortie ne correspondais pas, nous avons donc effectué de nouveau calcule pour les reistance.
- Les resistance R4 et R1 que nous avons changer R4 est de 100ohm maintenant elle est de 1000ohm et R1 de 1K à 1Ok.
+ Les resistance R4 et R1 que nous avons changer R4 est de 100ohm maintenant elle est de 1000ohm et R1 de 1K à 1Ok. Il y a que a ce moment ou notre signal d'entree etait de 100mV et 3V en sortie on a donc reussi a amplifier le signal.
+ Nous venant donc a nous pauser si cette amplification est assez concecante pour pouvoir manipuler le pizo ou bien il nous faudrai une amplification plus grande, voir meme differente.
