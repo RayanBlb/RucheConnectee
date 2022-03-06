@@ -18,6 +18,7 @@ Seance n°11 (10/02/2022) : Réalisation d'un schéma pour une amplification du 
 Seance n°11 (03/03/2022 & 04/03/2022) : Après presque 1 mois sans projet, nous avons decidé de reprendre la ou nous avons fini la derniere fois, 
 c'est a dire refaire des test avec un transistor a effet de champ en utilisant un montage source commmune. 
 Donc l'objectif des 2 seance est de tester des montage d'amplification de signal tel une sinusoide a une frequence entre 20Hz a 20kHz (fréquence voix humaine).
-Après les calcul des composant ainsi que le montage, nous avons réaliser que le montage ne faisait pas une amplification mais plutot l'ajout d'une constante continue.
+Nous avons reproduit un signal sinusoidal de 1kHz avec une amplitude de 100mV sur le GBF a l'entrée de notre montage puis avec une alimentation de 3,3V 
+ainsi qu'un transistor MOSFET nous avons essayer de faire une amplification x10 pour commencer mais nous avons eu plutot l'ajout d'une constante continue.
 Pour les prochaine seance, nous souhaitons tester plusieurs montage soit avec un AOP ( meme si cela utilise des transistor), 
 soit continuer sur le transistor a effet de champ pour comprendre surement nos erreur faites. 
