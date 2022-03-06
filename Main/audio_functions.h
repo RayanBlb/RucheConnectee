@@ -10,6 +10,8 @@ File file;
 const char filename[] = "/recording.wav";
 const int headerSize = 44;
 
+void wavHeader(byte* header, int wavSize);
+
 void recording_file_init() {
   LITTLEFS.remove(filename);
   file = LITTLEFS.open(filename, FILE_WRITE);

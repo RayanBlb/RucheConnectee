@@ -1,6 +1,9 @@
 #include "definition.h"
 #include "donnees.h"
 #include "LoRa.h"
+#include "ai_functions.h"
+#include "audio_functions.h"
+#include <LITTLEFS.h>
 
 //Trame
 uint8_t payload[PAYLOAD_LEN];
@@ -40,7 +43,8 @@ void debug_trame(){ //Fonction de debug de la trame
 }
 
 void loop() {
+  Serial.printf("test : %s",ai());
   //build_trame(payload);
-  debug_trame();
-  lora_send_trame(payload);
+  //debug_trame();
+  //lora_send_trame(payload);
 }

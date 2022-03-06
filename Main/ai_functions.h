@@ -4,6 +4,10 @@
     Basé sur https://github.com/hiveeyes/osbh-audioanalyzer/tree/df4caf7810c1afb3f4c2074d80d163fbace2183f - OSBH - Licence MIT
 */
 
+#include "audio_functions.h"
+
+String ai_state = "unkown";
+
 #include <LITTLEFS.h>
 using namespace std;
 float windowLength = 2;
@@ -523,13 +527,20 @@ int majorityVoting(std::vector<int> states)
 }
 
 String ai() {
+  
+  recording_file_init();
+  i2sInit();
+  xTaskCreate(i2s_adc, "i2s_adc", 1024 * 2, NULL, 1, NULL);
+  delay(RECORD_TIME * 1000 + 2500);
+
+  
   Serial.println("[AI] Starting");
   Classifier c = Classifier("logistic", "s1,3.03,4.21,-2,-0.54,0,-10.97,1.20,-5.76,0,4.15,-1.74,16.44,-35.67,-23.88\ns4,2.4,15,-33.46,-44.64,-2.5,1.91,-3.92,6.02,5.17,-14.3,35.72,-23.05,-22.39,6.87\ns9,-3.13,4.4,3.08,0.98,3.94,5.19,3.96,5.47,4.8,7.46,0.79,-44.22,24.39,41.2\ns10,3.88,-32.09,-0.18,1.81,-5.46,7.85,-8.62,-9.82,-1.14,-9.11,-5.44,2.34,9.25,-26.03\n");
   vector<Filter> filters = createFilters();
   FeatureExtractor fex(filters, samplingRate, windowLength);
   vector < vector < float > > energy;
   vector < int > DetectedStates;
-  vector <float> energy_local;
+  vector <float> energy_local;  
   File audio_file = LITTLEFS.open("/recording.wav", FILE_READ);
   if (audio_file != NULL)
   {
