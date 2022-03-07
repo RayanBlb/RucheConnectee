@@ -99,32 +99,32 @@ Je m'interesserais pour la suite des cours aux possibilité envisageable de gain
 
 Compte rendu quatorze et quizieme scéance de projet:  03/03/2022 & 04/03/2022
 
-Comme prevu dans le cours precedent les objectifs de ces sceances etait d'emphasé le gain de consommation des differents modules presents sur la carte, j'ai donc cherché de la documentation concernant les 
+Comme prevu dans le cours precedent les objectifs de ces sceances était d'emphasé le gain de consommation des differents modules presents sur la carte, j'ai donc cherché de la documentation concernant les 
 composants et leur differents modes de fonctionnement:
 
 -En ce qui concerne le module ccs 811, et ces differents modes de fonctionnement j'ai pu déterminer la partie du code dans la librairie qui me permettrais d'acceder a la modification
   de son mode de fonctionnement. Je souhaitais faire des tests concernant les differents modes et ainsi evaluer leur consommation en reel sur la carte, cependant olivier et Rayan
-  etait en debug dessus vis a vis du capteur de temperature pour verifier sa juste de fonctionnement et savoir si nous allions l'utiliser par la suite. Si le module s'avere fonctionnel,
+  etait en debug dessus vis a vis du capteur de temperature pour verifier sq precision au niveau du fonctionnement et savoir si nous allions l'utiliser par la suite. Si le module s'avere fonctionnel,
   alors j'effectuerais mes tests a la prochaine sceance.
  
  -J'en ais aussi profiter pour chercher du cote de notre micro-controlleur afin de savoir si il n'existait pas un mode fonctionnement low-power semblable a celui des PIC de chez
  microchip. 
  Et il s'avere que la gamme des esp 32 possedent differents modes de fonctionnement: 
         Active: le CPU et actif et toutes ses fonctionnalités avec,
-        Modern-Sleep: Un mode opitmiser de sommeil permettant au cpu du microcontrolleur d'adapter sa frequence selon les besoins et de desativer certains parametre momentanement 
+        Modern-Sleep: Un mode opitmiser de sommeil permettant au cpu du microcontrolleur d'adapter sa frequence selon les besoins et de désativer certains parametre momentanement 
                       la consomation de l'appareil est alors de 20 a 25 mA au mieux.
-        Light-Sleep: Ce mode de sommeil permet de reduire encore la consommation du systeme cependant certaines fonctionnalitées ne peuvent etre execute sans un changement de mode
+        Light-Sleep: Ce mode de sommeil permet de reduire encore la consommation du systeme cependant certaines fonctionnalitées ne peuvent etre executés sans un changement de mode
                       vers un modern-sleep ou active mode on parle ici d'un consomation de environ 800uA
-        Deep-Sleep: Ce mode desactive la majorite des interface du processeur et le coprocesseur et mis en routes, a ce stade certaines entrees/sorties reste encore active ainsi que
-                    L'I2C RTC, ce qui s'avere tres interessant dans notre cas car l'espwrooom dialogue avec le ccs 811 en I2C. On parle ici d'une consommation de l'ordre de 100uA
+        Deep-Sleep: Ce mode désactive la majorite des interface du processeur et le coprocesseur et mis en routes, a ce stade certaines entrées/sorties reste encore active ainsi que
+                    L'I2C RTC, ce qui s'avère tres interessant dans notre cas car l'espwrooom dialogue avec le ccs 811 en I2C. On parle ici d'une consommation de l'ordre de 100uA
                     Ce mode serait a mon sens le plus interessant a tester vis a vis de nos besoin et de notre carte.
         Hibernation: C'est un mode ultra-low power environ 5uA de consommation cependant seul reste le time RTC d'actif donc pas de possibilité de reveil par interruption dans ce cas de figure
        
 Si le changement de mode dans un code arduino est faisable alors j'envisage de faire des test vis a vis de ces differents types de mise en veille systeme afin de mesurer leur efficacité.
 
-Enfin j'ai cherché a svoir si il existait aussi un mode low-power pour le module LoRa "RFM95W-915S2" , et la aussi il exite des modes permettant l'inhibition de seulement certains parties/
-fonctionnalitées de ce module. de ce que j'ai pu discerner via le datasheet, et qumil existe un mode sleep permettant d'acceder au registre du composant via le spi et en ayant une
-grande majorité des ces fonctionnalités désactivé. Il existe aussi un mode stand-by qui semblerait désactivé la partie RF et les plls tout en laissant fonctionnel l'oscilateur interne,
+-Enfin j'ai cherché a savoir si il existait aussi un mode low-power pour le module LoRa "RFM95W-915S2", et la aussi il exite des modes permettant l'inhibition de seulement certaines parties/
+fonctionnalitées de ce module. De ce que j'ai pu discerner via le datasheet, il existe un mode sleep permettant d'acceder au registre du composant via le SPI et en ayant une
+grande majorité des ces fonctionnalités de désactivé. Il existe aussi un mode stand-by qui semblerait désactivé la partie RF et les plls tout en laissant fonctionnel l'oscilateur interne,
 et les blocks concernant le LoRa. Je souhaiterais creusé cette piste par la suite car cela nous permettrais encore d'avoir un gain de consommation potentiel qui semblerait etre a ce jour inexploité.
 
 Voici le datasheet du module RFM95: https://docs.rs-online.com/ff06/0900766b81544027.pdf
