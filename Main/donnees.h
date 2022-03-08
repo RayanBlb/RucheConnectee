@@ -1,7 +1,6 @@
-#include "Adafruit_CCS811.h" //librerie du capteur CO2
+#include "Adafruit_CCS811.h" //librerie du capteur CO2 et temperature
 #include "arduinoFFT.h"
 #include "WiFi.h"
-
 #include "definition.h"
 
 //Structure données
@@ -9,14 +8,14 @@ struct data_trame {
   char type; 
   uint8_t mac[6];
   double son;
-  float temperature;
+  double Piezo;
   uint16_t CO2;
   uint16_t CO2_TVOC;
-  double Piezo;
-  uint16_t hygro;
+  float temperature;
+  uint8_t hygro;
   uint16_t v_bat;
-  uint16_t charg_bat;
-  uint16_t IA;
+  uint8_t charg_bat;
+  uint8_t IA;
   int erreur;
 } ds;
 
@@ -40,7 +39,7 @@ unsigned long microseconds_piezo;
 double vReal_piezo[samples_piezo];
 double vImag_piezo[samples_piezo];
 
-Adafruit_CCS811 ccs; //permet d'utiliser le capteur CO2
+Adafruit_CCS811 ccs; //permet d'utiliser le capteur CO2 et temperature
 
 arduinoFFT FFTP = arduinoFFT();
 arduinoFFT FFT = arduinoFFT();
@@ -150,7 +149,7 @@ double read_Son(){
   return x;
 }
 
-uint8_t build_trame(uint8_t *payload){ //permet de fabriquer la trame
+void build_trame(uint8_t *payload){ //permet de fabriquer la trame
   
   ds.type = 'I';
   read_mac(ds.mac);
@@ -159,13 +158,15 @@ uint8_t build_trame(uint8_t *payload){ //permet de fabriquer la trame
   ds.CO2 = read_CO2();
   ds.CO2_TVOC = read_CO2_TVOC();
   ds.Piezo = read_Piezo();
-  ds.hygro = 0;
-  ds.v_bat = 1;
-  ds.charg_bat = 2;
-  ds.IA = 3;
+
+  ds.hygro = 30;
+  ds.v_bat = 13;
+  ds.charg_bat = 90;
+  ds.IA = 4;
+
   ds.erreur = 0;
 
-  Serial.printf("Trame before cast : %c | %X:%X:%X:%X:%X:%X | %f | %f | %d | %d | %f | %d\n",ds.type,ds.mac[0],ds.mac[1],ds.mac[2],ds.mac[3],ds.mac[4],ds.mac[5],ds.son,ds.temperature,ds.CO2,ds.CO2_TVOC,ds.Piezo,ds.erreur);
+  Serial.printf("Trame before cast : %c | %X:%X:%X:%X:%X:%X | %f | %f | %d | %d | %f | %d | %d | %d | %d | %d\n",ds.type,ds.mac[0],ds.mac[1],ds.mac[2],ds.mac[3],ds.mac[4],ds.mac[5],ds.son,ds.temperature,ds.CO2,ds.CO2_TVOC,ds.Piezo,ds.hygro,ds.v_bat,ds.charg_bat,ds.IA,ds.erreur);
   
   payload[0] = uint8_t(ds.type);
 
@@ -188,15 +189,11 @@ uint8_t build_trame(uint8_t *payload){ //permet de fabriquer la trame
   payload[15] = uint8_t((uint16_t(ds.Piezo) & 0xFF00) >> 8);
   payload[16] = uint8_t((uint16_t(ds.Piezo) & 0x00FF));
 
-  payload[17] = uint8_t((uint16_t(ds.hygro) & 0xFF00) >> 8);
-  payload[18] = uint8_t((uint16_t(ds.hygro) & 0x00FF));
+  payload[17] = ds.hygro;
 
-  payload[19] = uint8_t((uint16_t(ds.v_bat) & 0xFF00) >> 8);
-  payload[20] = uint8_t((uint16_t(ds.v_bat) & 0x00FF));
+  payload[18] = ds.v_bat;
 
-  payload[21] = uint8_t((uint16_t(ds.charg_bat) & 0xFF00) >> 8);
-  payload[22] = uint8_t((uint16_t(ds.charg_bat) & 0x00FF));
+  payload[19] = ds.charg_bat;
 
-  payload[23] = uint8_t((uint16_t(ds.IA) & 0xFF00) >> 8);
-  payload[24] = uint8_t((uint16_t(ds.IA) & 0x00FF));
+  payload[20] = ds.IA;
 }

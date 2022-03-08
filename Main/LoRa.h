@@ -4,7 +4,7 @@ struct LoRa_param_s {
   int  txPower = 15; // 2 to 17 dB limited to 15 because the UCA antenna = +2dB
   long frequency_id = 2; // 863.2 to 868.1 Mhz
   long frequency_offset = 0;
-  int  spreadingFactor = 11; // 7 to 12
+  int  spreadingFactor = 12; // 7 to 12
   long signalBandwidth_id = 1; // 125, 250, 500 kHz tester 62.5
   int  codingRateDenominator = 8 ; // 5 to 8
   long preambleLength = 12; // 6 to 65535, 12 default
@@ -62,7 +62,7 @@ void LoRa_send_payload(uint8_t *payload, uint8_t payload_len, uint8_t check_byte
   Serial.println("LoRa send:");
   LoRa.beginPacket();
   
-  for (uint8_t i = 0; i < payload_len; i++ ) {  
+  for (uint8_t i = 0; i <= payload_len; i++ ) {  
     LoRa.write(payload[i]);
     Serial.println(payload[i]);
     Serial.println(".");
