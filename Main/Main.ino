@@ -1,6 +1,6 @@
 #include "donnees.h"
 #include "LoRa.h"
-#include "definition.h"
+#include "config.h"
 
 //Trame
 uint8_t payload[PAYLOAD_LEN];
@@ -20,7 +20,7 @@ void setup() {
 
 void debug_trame(){ //Fonction de debug de la trame
   
-  //Trame forme : I|macAdresse|son|temperature|CO2|TVOC|Piezo|hygro|v_bat|charg_bat|IA
+  //Trame forme : I|macAdresse|son|temperature|CO2|TVOC|Piezo|hygro|v_bat|charg_bat|IA|Erreur
   
   build_trame(payload);
 
@@ -43,5 +43,5 @@ void debug_trame(){ //Fonction de debug de la trame
 
 void loop() {
   //debug_trame();
-  //lora_send_trame(payload);
+  lora_send_trame(payload);
 }

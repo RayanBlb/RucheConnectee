@@ -1,11 +1,16 @@
+#include <LITTLEFS.h>
+#include <driver/i2s.h>
 #include "Adafruit_CCS811.h" //librerie du capteur CO2 et temperature
 #include "arduinoFFT.h"
 #include "WiFi.h"
-#include "definition.h"
+
+#include "ia.h"
+#include "audio.h"
+#include "config.h"
 
 //Structure données
 struct data_trame { 
-  char type; 
+  char type;
   uint8_t mac[6];
   double son;
   double Piezo;
@@ -59,6 +64,9 @@ void setup_donnees() {
   //Calibrage capteur son
   sampling_period_us_piezo = round(1000000*(1.0/samplingFrequency_piezo));
   sampling_period_us = round(1000000*(1.0/samplingFrequency));
+
+  //Setup IA
+  LITTLEFSInit();
 }
 
 float read_Temperature(){ //permet de récuperer la température
@@ -149,6 +157,18 @@ double read_Son(){
   return x;
 }
 
+int info_ia(){
+  int resultat = 0;
+
+  recording_file_init();
+  i2sInit();
+  xTaskCreate(i2s_adc, "i2s_adc", 1024 * 2, NULL, 1, NULL);
+  delay(RECORD_TIME * 1000 + 2500);
+  resultat = ai();
+
+  return resultat;
+}
+
 void build_trame(uint8_t *payload){ //permet de fabriquer la trame
   
   ds.type = 'I';
@@ -162,7 +182,7 @@ void build_trame(uint8_t *payload){ //permet de fabriquer la trame
   ds.hygro = 30;
   ds.v_bat = 13;
   ds.charg_bat = 90;
-  ds.IA = 4;
+  ds.IA = info_ia();
 
   ds.erreur = 0;
 
