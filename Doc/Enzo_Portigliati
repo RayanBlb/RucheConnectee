@@ -23,4 +23,17 @@ ainsi qu'un transistor MOSFET nous avons essayer de faire une amplification x10 
 Pour les prochaine seance, nous souhaitons tester plusieurs montage soit avec un AOP ( meme si cela utilise des transistor), 
 soit continuer sur le transistor a effet de champ pour comprendre surement nos erreur faites. 
 
-Seance n°12 (11/03/2022) : 
+Seance n°12 (11/03/2022) : Après avoir passer nos oraux individuelle, Vous nous avez repris sur la façon de faire pour que notre amplificateur avance. Cela nous a permis de 
+            reprendre tout dans de bonne condition. Donc nous avons repris tout nos calcul, c'est a dire recalcul de IDS( = IDSS*(1-vgs/vgsoff)²) ainsi que Vgs (=-Rs*Is avec hypothese que IDS = Is)
+            Nous avons obtenu :Ids 5mA avec idss=0,02A, vgs=-4 et vgsoff=-8. Ensuite nous avons calculer Rs = 800Ohm.
+            Pour nos premiere mesure nous alors utiliser un montage source simple avec une alimentation 20V, une résistance sur le drain une sur la source connecter a la masse et 
+            une resistance sur la grille. Nous avons donc meruser le courant Is ainsi que la tension Vgs et Vds. ( Vds = -2V, Vgs = 15V et Id = 25mA).
+            Pour la suite, en entré de la grille nous avons rajouter une tension sinusoidale de 100mV a 1KHz ainsi qu'un condensateur calculer précedement pour avoir un passe haut 
+            pour fréquence de coupure 20Hz ( C = 1/(2*pi*F*R) soit 8nF).
+            Pour la prochaine seance nous ferons des mesure sur ce schema avec le GBF pour vérifier que nous avons bien une amplification en sortie du montage source commune et non pas
+            seulement un ajout de constante continue. Cela nous permettra de validez le montage et choisir un autre Jfet pour avoir une tension Vgs plus petite que -8V pour que cela 
+            rentre sur la carte.
+
+
+
+
