@@ -17,7 +17,7 @@ Mais le premier schéma ne fonctionnait pas, car il était pas adapté à notre 
 Pour ce montage, on a pris R2 de 1M ohm, R3 1K et R4 100 pour une alimentation de 5V en entrée.
 Par la suite, nous avons effectué des mesures pour les calculs du nouveau schéma ou nous avons mis un GBF(20HZ) à la place du piezo afin d'avoir un vrai signal pour notre essai.
 
-Séance n°12 (03/03/2022 & 04/0"/2022) : Nous avons continué nos expériences avec le GBF, nous avons joué sur sa fréquence afin de voir le signal moduler.
+Séance n°12 (03/03/2022 & 04/03/2022) : Nous avons continué nos expériences avec le GBF, nous avons joué sur sa fréquence afin de voir le signal moduler.
 Donc nous avons mis 1khz puis 2khz et nous avons augmenter, mais avec le schéma que nous avons ne fonctionne pas comme on veut l'amplification n'est pas suffisant, le signal de sortie ne correspondais pas,
 nous avons donc effectué de nouveau calcule pour les résistances.
 Les résistances R4 et R1 dont nous avons changé R4 qui était de 100 ohm maintenant elle est de 1000 ohm et R1 de 1K à 1Ok.
@@ -25,3 +25,16 @@ Il y a qu'à ce moment où notre signal d'entrée était de 100mV et 3,3V en sor
 Nous venant donc à nous demander si cette amplification est assez conséquente pour pouvoir manipuler le pizo ou bien il nous faudra-t-il une amplification plus grande,
 voire même différente. Nous allons de nouveau modifier le montage les valeurs des resistances voir si nos valeurs (Io,IDSS,Vgs, ID) sont correct.
 on veut tester différents montages soit avec un AOP (même s'il utilise des transistors), ou continuer sur le transistor à effet de champ pour comprendre sûrement nos erreurs.
+
+Séance n°13 (11/03/2022) : La séance a débuté avec une présentation orale individuelle pour l'avancement du projet. Ensuit, nous nous somme rendu compte de notre erreur vis-à-vis des manipulations précédentes.
+Donc le OFSET à une tension de seuil VGSoff de 8V pour que le transistor soit passant ou bloqué. Donc on modifie notre montage en polarisé avec une alimentation de au moins 10V.
+Le but est de savoir si notre montage est correct et pour cela, il faut que Id soit dans la zone de saturation sur notre courbe.
+Pour continuer nous avons refait rapidement nos calculs donc IDS= IDSS*(1-vgs/vgsoff)², et vgs=-Rs*Is. Sois un Ids 5mA avec idss=0,02A, vgs=-4 et vgsoff=-8.
+Maintenant, avec la loi d'ohm on a Rs=-Vgs/Ids donc 4/5mA=800ohm. 
+On a la valeur de nos 3 resistances on peut donc déjà effectuer nos premières mesures juste avec un schéma de base sans condensateurs ni le GBF pour le piezo. Avec une alimentation de 20V en entrée de notre montage on a
+un VDS de 15V et un vgs de -2V, on va chercher notre id avec ces nouvelles valeurs. On utilise la même formule que taleur Id=-Vgs/Rs mais on va utiliser la valeur de notre nouveau VGS.
+et on aura Id=25mA.
+Enfin, on voit qu'on est bien dans la zone saturée avec notre Id=25mA, on peut donc mettre un GBF, et poursuivre notre montage.
+Ensuite, on a Ve/Vs=Rg/Rg+1/jcw, donc =Rjcw/Rjcw+1 on sait que f0=1/2piRC  et C=1/2piR  on aura donc un condensateur de sortie du montage à 8nF, car pour notre montage, il nous faut un passe haut afin de filtrer notre signal de sortie et d'avoir une sinusoide.
+Donc, pour conclure, l'objectif de la prochaine séance sera de tester le montage complet et d'avoir un signal de sortie adapté à notre montage ainsi qu'à notre signal GBF pour remplacer le piezo.
+Et valider ou non le 2N3819, car notre carte est alimentée en 3,3 alors que nous, on met une alimentation de 20V qui est bien au-dessus de ce qu'on veut, donc a voire pour la suite.
