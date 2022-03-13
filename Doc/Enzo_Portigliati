@@ -22,3 +22,5 @@ Nous avons reproduit un signal sinusoidal de 1kHz avec une amplitude de 100mV su
 ainsi qu'un transistor MOSFET nous avons essayer de faire une amplification x10 pour commencer mais nous avons eu plutot l'ajout d'une constante continue.
 Pour les prochaine seance, nous souhaitons tester plusieurs montage soit avec un AOP ( meme si cela utilise des transistor), 
 soit continuer sur le transistor a effet de champ pour comprendre surement nos erreur faites. 
+
+Seance n°12 (11/03/2022) : 
