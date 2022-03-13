@@ -14,20 +14,20 @@ void setup() {
 
   setup_donnees();
 
-  SPI.begin(SCK, MISO, MOSI, CS);
+  SPI.begin(SCK, MISO, MOSI);
   LoRa.setPins(SS, RST, DI0);
 }
 
 void debug_trame(){ //Fonction de debug de la trame
   
-  //Trame forme : I|macAdresse|son|temperature|CO2|TVOC|Piezo|hygro|v_bat|charg_bat|IA|Erreur
+  //Trame forme : I|macAdresse|son|Temperature|CO2|TVOC|Piezo|hygro|v_bat|charg_bat|IA|Erreur
   
   build_trame(payload);
 
   char type = payload[0];
 
   uint16_t son = (payload[7] * 256u) + payload[8];
-  uint16_t temperature = (payload[9] * 256u) + payload[10];
+  uint16_t Temperature = (payload[9] * 256u) + payload[10];
   uint16_t CO2 = (payload[11] * 256u) + payload[12];
   uint16_t CO2_TVOC = (payload[13] * 256u) + payload[14];
   uint16_t Piezo = (payload[15] * 256u) + payload[16];
@@ -38,10 +38,11 @@ void debug_trame(){ //Fonction de debug de la trame
   uint8_t IA = payload[21];
 
   
-  Serial.printf("Trame after cast : %C | %X:%X:%X:%X:%X:%X | %u | %u | %u | %u | %u || %u | %u | %u | %u\n",type,payload[1],payload[2],payload[3],payload[4],payload[5],payload[6],son,temperature,CO2,CO2_TVOC,Piezo,hygro,v_bat,charg_bat,IA);
+  Serial.printf("Trame after cast : %C | %X:%X:%X:%X:%X:%X | %u | %u | %u | %u | %u || %u | %u | %u | %u\n",type,payload[1],payload[2],payload[3],payload[4],payload[5],payload[6],son,Temperature,CO2,CO2_TVOC,Piezo,hygro,v_bat,charg_bat,IA);
 }
 
 void loop() {
   //debug_trame();
+  build_trame(payload);
   lora_send_trame(payload);
 }

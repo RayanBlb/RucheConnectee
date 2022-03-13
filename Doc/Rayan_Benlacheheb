@@ -76,3 +76,20 @@ Par la suite, je me suis donc occupé du code de l'IA. J'ai donc isolé le code 
 Après avoir intégré le code audio, mon code ne compilait plus. J'ai actuellement un problème afin d'enregistrer et de lire 30 secondes d'audio. L'erreur qui m'est affichée est la suivante : redéfinition of 'fs::File file'. Je ne sais pas exactement pourquoi j'ai une erreur de ce style. Après m'être renseignée sur des forums. Il pourrait s'agir d'un conflit entre plusieurs bibliothèques audio utilisé. Je vais mettre au clair dans mon code et faire un fichier testé afin de tester uniquement les fonctions audio avant de les ajouter au code de l'IA.
 
 Mes priorités sont les suivantes : faire fonctionner le code audio et réussir a enregistré 30 secondes de son avec notre capteur. Ajuster la trame pour ne plus avoir d'erreur avec la gatway.
+
+Scéance n°15 (11/03/2022) : Durant cette séance, nous sommes passés à l'oral. Après mon passage à l'oral M. Peter nous a proposer d'ajouter un micro I2S afin de coller avec le code déjà mis en place pour l'IA. Afin d'ajouter ce micro, j'ai donc soudé 3 connecteurs supplémentaires afin de pouvoir connecter les 6 connecteurs du micro.
+
+Pour ce faire, j'ai soudé 3 connecteurs au niveau du "Touch Sensor TC1", cela m'a donc permit d'avoir un VCC, une entrée et un GND. Pour le reste, nous avons utilisé des connecteur d'entrées déjà souder afin de relier les autres entrées. 
+
+J'ai donc relié le micro de la manière suivante :
+
+I2S_SD --> "valid = 2"
+
+I2S_WS --> "CE = 12"
+
+I2S_SCK --> "BAT_ALERT = 15"
+
+L/R --> GND
+
+J'en ai également profité pour valider définitivement les valeurs de SCK, MISO, MOSI... Du code.
+Actuellement, le micro marche et je n'ai plus d'erreur dans mon code, pour les prochaines séances, je vais me concentrer sur la création de code de test afin de valider les données que nous remonte chaque composant de notre carte.

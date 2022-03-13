@@ -570,6 +570,6 @@ int ai() {
   }
   audio_file.close();
   
-  Serial.print("[AI] END");
+  Serial.print("[AI] END \n");
   return ai_state;
 }

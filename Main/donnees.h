@@ -181,7 +181,7 @@ void build_trame(uint8_t *payload){ //permet de fabriquer la trame
 
   ds.hygro = 30;
   ds.v_bat = 13;
-  ds.charg_bat = 90;
+  ds.charg_bat = 255;
   ds.IA = info_ia();
 
   ds.erreur = 0;
