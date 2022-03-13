@@ -10,12 +10,15 @@ Scéance n°9 (10/12/2021) : Passage à l'oral
 
 ---------- Semestre 8 ----------
 
-Scéance n°10 (07/01/2022) : Apréhension du code IA, lecture et compréhension du code RuchESIEA (https://github.com/RayanBlb/RucheConnectee/tree/main/IA)
-                            A faire : Approfondir l'étude, voir en détail les fichiers "fs_functions" & "ftp_functions"
+Scéance n°10 (07/01/2022)              : Apréhension du code IA, lecture et compréhension du code RuchESIEA (https://github.com/RayanBlb/RucheConnectee/tree/main/IA)
+                                         A faire : Approfondir l'étude, voir en détail les fichiers "fs_functions" & "ftp_functions"
+                                         
 Scéance n°11 (03/02/2022 & 04/02/2022) : Blocage sur le code IA, fonctions fs & ftp (https://github.com/RayanBlb/RucheConnectee/tree/main/IA)
+
 Scéance n°12 (10/02/2022 & 11/02/2022) : Etude du schematic réalisé par le groupe précédent avec Oliver Melot, reproduction du schematic afin de frefaire une carte contenant le capteur piezo.
                                          Test des différents capteur présent sur la carte, problème rencontré le code ne semble pas compiler correctement et on lit un message d'erreur sur le terminal série.
                                          Reproduction des footprints des composants de la carte car certaines références ne sont pas disponibles en ligne (Capteurs CCS811 et ADMP401, voir https://github.com/RayanBlb/RucheConnectee/tree/main/Export).
+
 Scéance n°13 (03/03/2022 & 04/03/2022) : Le but de la scéance était de développer un code permettant de tester les différents composants de la carte
                                          Après quelques problèmes d'étallonage, les valeurs des différents capteurs ont pu être testées
                                          Pour l'instant nous n'utilisons pas le capteur de température indépendant mais plutôt celui positionné sur la même puce que le CS811. 
@@ -23,3 +26,9 @@ Scéance n°13 (03/03/2022 & 04/03/2022) : Le but de la scéance était de déve
                                          En attendant nous allons nous utiliser de ce capteur.
                                          Voir le fichier "TestCapteurs" : https://github.com/RayanBlb/RucheConnectee/tree/main/TestCapteurs.
                                          Pour la prochaine scéance, les valeurs CO2 et TVOC doivent encore être comparées aux valeurs attendus après initialisation de 20 minutes et vérifier les calculs liés à la FFT.
+
+Scéance n°14 (11/03/2022)              : Lors de cette scéance, en dehors du passage à l'oral, suite aux conseils/explications j'ai continué de rechercher le procédé utilisé pour vérifier le bon fonctionnemnt du capteur son (ADMP401) présent sur la carte.
+                                         L'utilisation de la bibliothèque FFT s'est avérée nécessaire afin de transitionner des valeurs du domaine temporel vers le domaine fréquentiel. La TF classique ne s'appliquant pas à des signaux continus, il a fallut utiliser la Transformée de Fourrier Discrète.
+                                         Le signal recherché est celui de la fréquence fondamentale récupérée vie l'instruction : FFT.MajorPeak().
+                                         Voir le fichier "TestCapteurs" : https://github.com/RayanBlb/RucheConnectee/tree/main/TestCapteurs.
+                                         Pour la prochaine scéance il faudra finaliser l'interprétation des capteurs CO2, TVOC et Son.
