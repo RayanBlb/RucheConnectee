@@ -32,3 +32,7 @@ Scéance n°14 (11/03/2022)              : Lors de cette scéance, en dehors du 
                                          Le signal recherché est celui de la fréquence fondamentale récupérée vie l'instruction : FFT.MajorPeak().
                                          Voir le fichier "TestCapteurs" : https://github.com/RayanBlb/RucheConnectee/tree/main/TestCapteurs.
                                          Pour la prochaine scéance il faudra finaliser l'interprétation des capteurs CO2, TVOC et Son.
+                                        
+Scéance n°15 (29/03/2022)              : L'objectif de la scéance était de vérifier les cpateurs CO2, TVOC et Son, ces mesures ont été effectuées et vérifiées.
+                                         Le code des capteurs à été modifié et optimiser afin de le rendre plus lisible et compacte.
+                                         La suite du cours s'est passée en binôme avec Rayan afin de continuer à faire avancer la partie programmation.
