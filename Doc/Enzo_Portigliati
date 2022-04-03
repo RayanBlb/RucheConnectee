@@ -15,7 +15,7 @@ Seance n°11 (10/02/2022) : Réalisation d'un schéma pour une amplification du 
 -Calcul des résistances et des tensions de fonctionnement du transistor (VDS, VGS).
 -Test sur la carte pour le bon fonctionnement mais pas conculant. Mesure pour effectué de nouveaux calcul pour le nouveau schéma.
 
-Seance n°11 (03/03/2022 & 04/03/2022) : Après presque 1 mois sans projet, nous avons decidé de reprendre la ou nous avons fini la derniere fois, 
+Seance n°12 (03/03/2022 & 04/03/2022) : Après presque 1 mois sans projet, nous avons decidé de reprendre la ou nous avons fini la derniere fois, 
 c'est a dire refaire des test avec un transistor a effet de champ en utilisant un montage source commmune. 
 Donc l'objectif des 2 seance est de tester des montage d'amplification de signal tel une sinusoide a une frequence entre 20Hz a 20kHz (fréquence voix humaine).
 Nous avons reproduit un signal sinusoidal de 1kHz avec une amplitude de 100mV sur le GBF a l'entrée de notre montage puis avec une alimentation de 3,3V 
@@ -23,7 +23,7 @@ ainsi qu'un transistor MOSFET nous avons essayer de faire une amplification x10 
 Pour les prochaine seance, nous souhaitons tester plusieurs montage soit avec un AOP ( meme si cela utilise des transistor), 
 soit continuer sur le transistor a effet de champ pour comprendre surement nos erreur faites. 
 
-Seance n°12 (11/03/2022) : Après avoir passer nos oraux individuelle, Vous nous avez repris sur la façon de faire pour que notre amplificateur avance. Cela nous a permis de 
+Seance n°13 (11/03/2022) : Après avoir passer nos oraux individuelle, Vous nous avez repris sur la façon de faire pour que notre amplificateur avance. Cela nous a permis de 
             reprendre tout dans de bonne condition. Donc nous avons repris tout nos calcul, c'est a dire recalcul de IDS( = IDSS*(1-vgs/vgsoff)²) ainsi que Vgs (=-Rs*Is avec hypothese que IDS = Is)
             Nous avons obtenu :Ids 5mA avec idss=0,02A, vgs=-4 et vgsoff=-8. Ensuite nous avons calculer Rs = 800Ohm.
             Pour nos premiere mesure nous alors utiliser un montage source simple avec une alimentation 20V, une résistance sur le drain une sur la source connecter a la masse et 
@@ -34,6 +34,12 @@ Seance n°12 (11/03/2022) : Après avoir passer nos oraux individuelle, Vous nou
             seulement un ajout de constante continue. Cela nous permettra de validez le montage et choisir un autre Jfet pour avoir une tension Vgs plus petite que -8V pour que cela 
             rentre sur la carte.
 
-
+Seance n°14 ( 29/03/22) : Dans la continuité de la derniere séance et de reussir a faire l'amplification. Pour cela, nous avons refait le schema source commune.
+            Avec comme entrée une sinusoide avec une frequence de 5kHz et une amplitude de 1V C-C faite avec le GBF, un Vcc de 20V.
+            Nous avons mesuré un Vs de 2v, un Vd de 16v donc un Vds de 14v et enfin id=2,5mA soit des mesure plus ou moins equivalente a la derniere séance. 
+            On a donc changé Rs qui était de 820ohm à 470. Et maintenant nos nouvelles mesures sont de vs=17v, Vd=1,7 avec un Vds de 15,3v.
+            1,7/470=3,6mA pour Id. On prend un condensateur de 10nF pour avoir une frequence de coupure de 20Hz. 
+            En fin de séance, nous avons réussi à faire une amplification entre 1.6 et 3.5 en fonction du condenssateur Cs( si Cs = 100nF, amplification est 
+            de 3.5 et si cs =330nF amplification de 1.6) mais toujours pas assez signifiante pour le module piezo ( car on souhaite passer de microVolt a mV/V soit une amplification d'au moins 100/1000)
 
 
