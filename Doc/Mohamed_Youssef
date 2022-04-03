@@ -38,3 +38,11 @@ Enfin, on voit qu'on est bien dans la zone saturée avec notre Id=25mA, on peut 
 Ensuite, on a Ve/Vs=Rg/Rg+1/jcw, donc =Rjcw/Rjcw+1 on sait que f0=1/2piRC  et C=1/2piR  on aura donc un condensateur de sortie du montage à 8nF, car pour notre montage, il nous faut un passe haut afin de filtrer notre signal de sortie et d'avoir une sinusoide.
 Donc, pour conclure, l'objectif de la prochaine séance sera de tester le montage complet et d'avoir un signal de sortie adapté à notre montage ainsi qu'à notre signal GBF pour remplacer le piezo.
 Et valider ou non le 2N3819, car notre carte est alimentée en 3,3 alors que nous, on met une alimentation de 20V qui est bien au-dessus de ce qu'on veut, donc a voire pour la suite.
+
+Séance n°14(29/03/22) : Pour poursuivre nos recherches de la séance précédente, le but de cette séance était de réussir notre amplification. Pour cela, sur notre plaquette, nous avons mis le schéma source commune en entier.
+Nous avons rajouté le GBF en entrée, et trois condensateurs, l'un juste après le GBF, le suivant en parallèle à la résistance Rs afin d'avoir un montage source commune en petits signaux et le dernier à la sortie pour filtrer la fréquence de sortie.
+Lors de notre premier essaie on n'a pas eu d'amplification, malgré le fait qu'on ait tout suivie, on a donc refait des mesures et des calcul à 20V en entrée.
+Nous avions eu un Vs de 2v un Vd de 16v donc un Vds de 14v et enfin id=2,5mA plus ou moins pareil que nos premier mesure. On a donc changé Rs qui était de 820ohm à 470. Et maintenant nos nouvelles mesures sont de vs=17v, Vd=1,7 avec un Vds de 15,3v.
+1,7/470=3,6mA pour Id. On pend un condensateur de 10nF pour avoir une frequence de coupure de 16Hz. 
+Et enfin Cs on le modifie par rapport au schéma petit signaux et on prend une valeur 20x plus faible que Rs.
+Enfin, à la fin de la séance, nous avons réussi à faire une amplification assez importante mais toujours pas assez signifiante pour un module piezo.
