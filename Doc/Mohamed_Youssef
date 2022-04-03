@@ -43,6 +43,6 @@ Séance n°14(29/03/22) : Pour poursuivre nos recherches de la séance précéde
 Nous avons rajouté le GBF en entrée, et trois condensateurs, l'un juste après le GBF, le suivant en parallèle à la résistance Rs afin d'avoir un montage source commune en petits signaux et le dernier à la sortie pour filtrer la fréquence de sortie.
 Lors de notre premier essaie on n'a pas eu d'amplification, malgré le fait qu'on ait tout suivie, on a donc refait des mesures et des calcul à 20V en entrée.
 Nous avions eu un Vs de 2v un Vd de 16v donc un Vds de 14v et enfin id=2,5mA plus ou moins pareil que nos premier mesure. On a donc changé Rs qui était de 820ohm à 470. Et maintenant nos nouvelles mesures sont de vs=17v, Vd=1,7 avec un Vds de 15,3v.
-1,7/470=3,6mA pour Id. On pend un condensateur de 10nF pour avoir une frequence de coupure de 16Hz. 
+1,7/470=3,6mA pour Id. On pend un condensateur de 10nF pour avoir une fréquence de coupure de 16Hz. 
 Et enfin Cs on le modifie par rapport au schéma petit signaux et on prend une valeur 20x plus faible que Rs.
 Enfin, à la fin de la séance, nous avons réussi à faire une amplification assez importante mais toujours pas assez signifiante pour un module piezo.
