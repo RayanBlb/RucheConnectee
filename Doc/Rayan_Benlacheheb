@@ -93,3 +93,8 @@ L/R --> GND
 
 J'en ai également profité pour valider définitivement les valeurs de SCK, MISO, MOSI... Du code.
 Actuellement, le micro marche et je n'ai plus d'erreur dans mon code, pour les prochaines séances, je vais me concentrer sur la création de code de test afin de valider les données que nous remonte chaque composant de notre carte.
+
+Scéance n°16 (29/03/2022) : 
+Je me suis occupé avec Olivier durant cette séance d'optimiser et de développer le code de test qui va nous permettre de tester la manière dont nous récupérons les données des capteurs ainsi que de tester la fiabilité des informations que nous récupérant. Ainsi la manière dont nous récupérant les données de températures, CO2 et TVOC a été amélioré et retravailler, nous arrivons à obtenir des informations plus proches de la réalité.
+
+Dans un seconde temps avec Oliver, nous avons travaillé sur l'économie d'énergie de la carte ainsi que de son mode sleep. Nous avons donc procéder à des mesures de tensions et de courant des capteurs lorsque la carte est en mode "Normal" puis en mode "sleep". L'idée et d'ajouter un mode économie d'énergie afin d'allonger la longévité de la charge, mais également de limité le nombre de requêtes envoyer à la passerelle.

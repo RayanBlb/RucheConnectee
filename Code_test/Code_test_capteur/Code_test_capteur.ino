@@ -9,7 +9,7 @@ struct data_trame {
   double Piezo;
   uint16_t CO2;
   uint16_t CO2_TVOC;
-  float temperature;
+  float Temperature;
   uint8_t hygro;
   uint16_t v_bat;
   uint8_t charg_bat;
@@ -37,7 +37,7 @@ unsigned long microseconds_piezo;
 double vReal_piezo[samples_piezo];
 double vImag_piezo[samples_piezo];
 
-Adafruit_CCS811 ccs; //permet d'utiliser le capteur CO2 et temperature
+Adafruit_CCS811 ccs; //permet d'utiliser le capteur CO2 et Temperature
 
 arduinoFFT FFTP = arduinoFFT();
 arduinoFFT FFT = arduinoFFT();
@@ -63,49 +63,39 @@ void setup() {
   pinMode(MEASURE, OUTPUT);
   digitalWrite(MEASURE,HIGH);
 
-  if(!ccs.begin()){
+  if(!ccs.begin(0x5B)){
     Serial.println("Failed to start sensor! Please check your wiring.");
     while(1);
   }
 
   //Calibrage capteur température
   while(!ccs.available());
-  ds.temperature = ccs.calculateTemperature();
-  ccs.setTempOffset(ds.temperature - 25.0);
+  ds.Temperature = ccs.calculateTemperature();
+  ccs.setTempOffset(ds.Temperature - 25.0);
 }
 
 void loop() { 
   read_Temperature_CO2_TVOC();
   read_mac(ds.mac);
-  //Serial.println(ds.mac);
+  Serial.printf("CO2 : %u , CO2_TVOC : %u, Temperature : %u ,mac : %X:%X:%X:%X:%X:%X \n",ds.CO2,ds.CO2_TVOC,ds.Temperature,ds.mac[0],ds.mac[1],ds.mac[2],ds.mac[3],ds.mac[4],ds.mac[5]);
   delay(1000);
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 void read_Temperature_CO2_TVOC(){
   char buff [10];
-  
   if(ccs.available()){
-    ds.temperature = ccs.calculateTemperature();
+    ds.Temperature = ccs.calculateTemperature();
     if(!ccs.readData()){
       ds.CO2 = ccs.geteCO2();
       ds.CO2_TVOC = ccs.getTVOC();
-
-      Serial.println("CO2: ");
-      Serial.println(ds.CO2);
-      Serial.println("ppm, TVOC: ");
-      Serial.println(ds.CO2_TVOC);
-      Serial.println("ppb Temp:");
-      Serial.println(ds.temperature);
       }else{
         Serial.println("ERROR!");
         while(1);
         }
         }
-  sprintf(buff,"%.1f",ds.temperature); //Permet d'avoir une valeur un chiffre après la virgule
-  ds.temperature = strtof(buff, NULL); //Char to int
-  Serial.println("ppb Temp:");
-  Serial.println(ds.temperature);
+  // sprintf(buff,"%.1f",ds.Temperature); //Permet d'avoir une valeur un chiffre après la virgule
+  //ds.Temperature = strtof(buff, NULL); //Char to int
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
