@@ -129,3 +129,53 @@ et les blocks concernant le LoRa. Je souhaiterais creusé cette piste par la sui
 
 Voici le datasheet du module RFM95: https://docs.rs-online.com/ff06/0900766b81544027.pdf
 Voici le datasheet de la famille des esp32: https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf
+
+
+Compte rendu seizieme scéance de projet:  29/03/22
+
+Donc comme évoqué dqns le dernier co,pte rendu je me suis d'abord concentré sur le module de l'esp32 en premier car d'apres les datasheet ainsi que leurs informations
+la plus grande source de gain de consomation ce trouve dans son fonctionnement.
+
+Pour cela je me suis donc interessé sur la faisabilité du projet sous arduino. En effet ayant des doutes quant a l'acces des registres de l'esp32 via cet IDE j'ai donc 
+cherché sur différents forum si cela etait possible ou avait deja été abordé par quelqu'un. Le but étant d'optimiser la consommation de l'appareil dans ces differentes 
+phases.
+La bonne nouvelle est que l'on peut acceder a ces registres via des fonction déja pré-existante dans la librairie de l'esp32, seul bémole et aue pour utiliser ces fonctions 
+il m'a fallut venir retrouver les différents fichiers concernants ces fonctions dans mes fichiers d'installation des librairies arduino. Il faut notamment s'interesser a la 
+fonction "sleep.h", car elle nous donne ainsi la declaration de la fonction activant ces différents modes de mise en veille.
+
+L'optimisation idéal du code serait de mettre l'esp32 en mode "Deep-sleep" lorsque celui-ci est inactif afin de préserver un maximum le systeme de pouvoir consommé alors 
+qu'i n'effectue aucune action et voir meme en mode "hibernation" sur un lapse de temps qui reste a déinir. Cela permettrais aux systeme de se reveiller seulement via une
+interruption qui peut etre externe/interne en deep-sleep et ou alors en mode hibernation seulement par le rtc.
+
+Quant il dialogue avec le module LoRa alors le systeme devra automatiquement etre "light-sleep", car l'interface SPI ne doit pas etre désactivé pour que les deux modules 
+puissent dialogué. Cela restera malgrès tout une amelioration sur le mode fonctionnement de base qui est le mode actif, il aurait au moins un gain de consommation de l'ordre du 
+x10 selon les datasheet. En passant a plus de 25mA pour seulement 800uA.
+
+Puis lorsque l'esp32 ne dialogue pas le module LoRa mais attends la stabilisation des données provenant notamment du ccs811, alors on pourrait le passé en mode Deep-Sleep, 
+Cela permettrais le dialogue en I2C du systeme avec de très faible consomation.
+
+Le seul test que j'ai pu realiser pour l'instant reste assez peu probant mais reste de très bon augur pour la suite en effet grace a un petit module USB que jmai achete sur 
+Amazon je peut connaitre la consomation en temps reel de ce systeme et ce lorsqu'il est branché.
+
+Grace a l'appuie des forum j'ai compilé et téléverser un programme qui est censé passer l'esp32 en mode light-sleep. 
+Le module que j'ai acheté ma permis de voir que la carte consommait en moyenne, 80mA et cela quant elle faisait de la simple lecture des entrees et sorties. Cela a été reduit
+a 30mA lorsque j'ai televersé le nouveau code. 
+
+J'aimerais pouvoir realiser des test plus approfondies ainsi qu'investiguer sur cette fonction afin de l'optimiser pour notre cas de figure. Le but étant de faire un état
+des lieux de la consommation du syteme sous ces differentes phases sans optimisation des modes puis en étant optimisé.
+
+Voici les lignes de codes permettant de lancé un mode light-sleep: 
+
+void setup() {
+ Serial.begin(115200);
+ Serial.println("setup");
+}
+
+void loop() {
+ esp_sleep_enable_timer_wakeup(3000000); //3 seconds
+ int ret = esp_light_sleep_start();
+ Serial.print("light_sleep:");
+ Serial.println(ret);
+}
+
+
