@@ -18,6 +18,7 @@ void setup() {
   LoRa.setPins(SS, RST, DI0);
 }
 
+//Fonction debug trame
 void debug_trame(){ //Fonction de debug de la trame
   
   //Trame forme : I|macAdresse|son|Temperature|CO2|TVOC|Piezo|hygro|v_bat|charg_bat|IA|Erreur
@@ -41,6 +42,7 @@ void debug_trame(){ //Fonction de debug de la trame
   Serial.printf("Trame after cast : %C | %X:%X:%X:%X:%X:%X | %u | %u | %u | %u | %u || %u | %u | %u | %u\n",type,payload[1],payload[2],payload[3],payload[4],payload[5],payload[6],son,Temperature,CO2,CO2_TVOC,Piezo,hygro,v_bat,charg_bat,IA);
 }
 
+//Loop de travail
 void loop() {
   //debug_trame();
   build_trame(payload);

@@ -1,0 +1,11 @@
+-Analyse du code des précédent groupe
+-Mise en forme de la trame (détermination des infos a transmettre)
+-Mise en place de la trame (Exemple pris sur le code du prof)
+Avec	->Convertion en uint8 des informations
+		->Split de certaine donner
+		-> +20 pour la température
+-Code de vérification afin de vérifier que après split et réassemblage les données sont bonnes
+
+-Mise en place du code LoRa (Modification d'un code données par le prof)
+-Configuration de la passerale via application android (Utilisation de Putty pour afficher les données de la passerelle)
+-

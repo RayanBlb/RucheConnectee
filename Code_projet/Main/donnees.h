@@ -50,6 +50,7 @@ Adafruit_CCS811 ccs; // permet d'utiliser le capteur CO2 et temperature
 arduinoFFT FFTP = arduinoFFT();
 arduinoFFT FFT = arduinoFFT();
 
+//Fonction de setup
 void setup_donnees()
 {
 
@@ -170,6 +171,7 @@ void read_Son()
   ds.son = FFT.MajorPeak(vReal, samples, samplingFrequency);
 }
 
+//Fonction IA, permet de récuperer l'état de la ruche on fonction de 30 seconde d'audio
 int info_ia()
 {
   int resultat = 0;
@@ -186,6 +188,7 @@ int info_ia()
 void build_trame(uint8_t *payload)
 { // permet de fabriquer la trame
 
+  //Récuperation des données afin de remplir la structure
   ds.type = 'I';
   read_mac(ds.mac);
   read_Son();
@@ -202,7 +205,7 @@ void build_trame(uint8_t *payload)
   ds.erreur = 0;
 
   Serial.printf("Trame before cast : %c | %X:%X:%X:%X:%X:%X | %f | %f | %d | %d | %f | %d | %d | %d | %d | %d\n", ds.type, ds.mac[0], ds.mac[1], ds.mac[2], ds.mac[3], ds.mac[4], ds.mac[5], ds.son, ds.Temperature, ds.CO2, ds.CO2_TVOC, ds.piezo, ds.hygro, ds.v_bat, ds.charg_bat, ds.IA, ds.erreur);
-
+   //Conversion en uint8
   payload[0] = uint8_t(ds.type);
 
   for (int i = 1; i < 7; i++)
@@ -210,6 +213,7 @@ void build_trame(uint8_t *payload)
     payload[i] = uint8_t(ds.mac[i - 1]);
   }
 
+  //Split d'un uin16 en 2 uint8
   payload[7] = uint8_t((uint16_t(ds.son) & 0xFF00) >> 8);
   payload[8] = uint8_t((uint16_t(ds.son) & 0x00FF));
 

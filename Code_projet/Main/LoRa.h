@@ -17,7 +17,8 @@ long frequency_values[] = {863.2E6, 863.5E6, 863.8E6, 864.1E6, 864.4E6, 864.7E6,
                            
 long signalBandwidth_values[] = {62500, 125000, 250000, 500000}; // Hz
 
-
+//Initialisation du Lora avec les données de connexion de la structure
+//Attention entre la gateway et la carte il faut que les données entrées soit identiques
 void LoRa_start(struct LoRa_param_s  LR) {
   if (!LoRa.begin(frequency_values[LR.frequency_id])) {
     Serial.println("LoRa init failed. Check your connections.");
@@ -57,6 +58,8 @@ void LoRa_start(struct LoRa_param_s  LR) {
   LoRa.enableCrc(); 
 }
 
+//Permet d'envoyer la trame octets par octets
+//La fonction prend en parametre: la trame, la taille de la trame et un bit d'erreur
 //*** payload LoRa ********************************************************
 void LoRa_send_payload(uint8_t *payload, uint8_t payload_len, uint8_t check_byte) {
   Serial.println("LoRa send:");
@@ -75,12 +78,14 @@ void LoRa_send_payload(uint8_t *payload, uint8_t payload_len, uint8_t check_byte
   LoRa.endPacket();
 }
 
+//Stop le Lora
 //*** stop LoRa ********************************************************
 void LoRa_stop(){
   LoRa.sleep();
   LoRa.end();
 }
 
+//Routine d'envoie
 void lora_send_trame(uint8_t *payload){
   LoRa_start(LoRa_param_1); //Permet d'initialiser Lora avec les bonnes valeurs
   LoRa_send_payload(payload,PAYLOAD_LEN,0); //Permet d'envoyer le payload
